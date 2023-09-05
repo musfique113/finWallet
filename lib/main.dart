@@ -44,7 +44,12 @@ class _MyAppState extends State<MyApp> {
   BaseAuthUser? initialUser;
   bool displaySplashImage = true;
 
-  final authUserSub = authenticatedUserStream.listen((_) {});
+  // final authUserSub = authenticatedUserStream.listen((_) {});
+  // @override
+  // void dispose() {
+  //   FirebaseAuth.instance.signOut();
+  //   super.dispose();
+  // }
 
   @override
   void initState() {
@@ -58,12 +63,12 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  @override
-  void dispose() {
-    authUserSub.cancel();
+  // @override
+  // void dispose() {
+  //   authUserSub.cancel();
 
-    super.dispose();
-  }
+  //   super.dispose();
+  // }
 
   void setLocale(String language) {
     setState(() => _locale = createLocale(language));
@@ -126,7 +131,7 @@ class NavBarPage extends StatefulWidget {
 }
 
 /// This is the private State class that goes with NavBarPage.
-class _NavBarPageState extends State<NavBarPage> {
+class _NavBarPageState extends State<NavBarPage>  {
   String _currentPageName = 'MY_Card';
   late Widget? _currentPage;
 
@@ -136,7 +141,13 @@ class _NavBarPageState extends State<NavBarPage> {
     _currentPageName = widget.initialPage ?? _currentPageName;
     _currentPage = widget.page;
   }
-   Future<bool> onWillPop() async {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+
+  Future<bool> onWillPop() async {
     await FirebaseAuth.instance.signOut();
     return true;
   }
@@ -153,7 +164,6 @@ class _NavBarPageState extends State<NavBarPage> {
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
-        
         body: _currentPage ?? tabs[_currentPageName],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,

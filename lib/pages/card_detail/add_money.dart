@@ -1,27 +1,26 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mfsbd/index.dart';
-import 'package:mfsbd/pages/card_detail/add_money.dart';
+import 'package:mfsbd/main.dart';
 
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/main.dart';
 import 'package:flutter/material.dart';
+import 'card_detail_model.dart';
 export 'card_detail_model.dart';
 
-class CardDetail extends StatefulWidget {
+class AddMoney extends StatefulWidget {
   final String cardType;
-  const CardDetail({Key? key, required this.cardType}) : super(key: key);
+  const AddMoney({Key? key, required this.cardType}) : super(key: key);
 
   @override
-  _CardDetailState createState() => _CardDetailState();
+  _AddMoneyState createState() => _AddMoneyState();
 }
 
-class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
+class _AddMoneyState extends State<AddMoney> with TickerProviderStateMixin {
   late CardDetailModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -43,92 +42,27 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  void deleteDocument() async {
-    try {
-      // Identify the reference of the document to be deleted
-      final querySnapshot = await FirebaseFirestore.instance
+  Future<bool> balanceTransfer(String cardType, int amnt) async {
+    final snapshot = await FirebaseFirestore.instance
+        .collection('cards')
+        .where('userid', isEqualTo: FirebaseAuth.instance.currentUser?.uid)
+        .where('cardType', isEqualTo: cardType)
+        .get();
+
+    if (snapshot.docs.isNotEmpty) {
+      var balanceData = snapshot.docs[0].data();
+      int currentBalance = int.parse(balanceData['cardAmount']);
+
+      String newBalance = (currentBalance + amnt).toString();
+
+      await FirebaseFirestore.instance
           .collection('cards')
-          .where('cardType', whereIn: [widget.cardType])
-          .where('userid', isEqualTo: FirebaseAuth.instance.currentUser?.uid)
-          .get();
-
-      if (querySnapshot.docs.isNotEmpty) {
-        final documentReference = querySnapshot.docs.first.reference;
-
-        // Delete the document
-        await documentReference.delete();
-
-        // Document has been deleted successfully
-      } else {
-        print('Document not found');
-      }
-    } catch (e) {
-      print('Error deleting document: $e');
+          .doc(snapshot.docs[0].id)
+          .update({'cardAmount': newBalance});
+      return true;
+    } else {
+      return false; // No matching card document found.
     }
-  }
-
-  void _showConfirmationBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-      ),
-      builder: (BuildContext context) {
-        return Container(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'Are you sure you want to delete this card?',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(); // Close the bottom sheet
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF39D2C0)),
-                    child: Text('Cancel'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      deleteDocument();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Card Removed!',
-                          ),
-                        ),
-                      );
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'MY_Card'),
-                        ),
-                        (r) => false,
-                      );
-                    },
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                    child: Text('Delete'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
-      },
-    );
   }
 
   @override
@@ -177,7 +111,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            widget.cardType,
+                            'Add Money',
                             style: FlutterFlowTheme.of(context).displaySmall,
                           ),
                           Card(
@@ -469,112 +403,82 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                       SizedBox(
                         height: 50,
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.40,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.bottomToTop,
-                                    duration: Duration(milliseconds: 220),
-                                    reverseDuration:
-                                        Duration(milliseconds: 220),
-                                    child: TransferMonery(),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: 100.0,
+                        constraints: BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width * 0.8,
+                        ),
+                        decoration: BoxDecoration(),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
+                          child: TextFormField(
+                            controller: _model.textController1,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .override(
+                                    fontFamily: 'Lexend',
+                                    color:
+                                        FlutterFlowTheme.of(context).grayLight,
+                                    fontWeight: FontWeight.w300,
                                   ),
-                                );
-                              },
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.swap_horiz_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 40.0,
+                              hintText: FFLocalizations.of(context).getText(
+                                'wih71x51' /* Amount */,
+                              ),
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .override(
+                                    fontFamily: 'Lexend',
+                                    color:
+                                        FlutterFlowTheme.of(context).grayLight,
+                                    fontWeight: FontWeight.w300,
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '8bnd6lco' /* Transfer */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ),
-                                ],
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              errorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedErrorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 24.0, 24.0, 24.0),
+                              prefixIcon: FaIcon(
+                                FontAwesomeIcons.bangladeshiTakaSign,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 32.0,
                               ),
                             ),
+                            style: FlutterFlowTheme.of(context).displaySmall,
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.number,
+                            validator: _model.textController1Validator
+                                .asValidator(context),
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.40,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.bottomToTop,
-                                    duration: Duration(milliseconds: 220),
-                                    reverseDuration:
-                                        Duration(milliseconds: 220),
-                                    child: AddMoney(cardType: widget.cardType),
-                                  ),
-                                );
-                              },
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  // FontAwesomeIcons(
-                                  //   FontAwesomeIcons.moneyBillTransfer
-                                  // ),
-                                  Icon(
-                                   FontAwesomeIcons.moneyBill1Wave,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 40.0,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Add Money',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
@@ -589,9 +493,118 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
-                      _showConfirmationBottomSheet(context);
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(16.0)),
+                        ),
+                        builder: (BuildContext context) {
+                          return SingleChildScrollView(
+                            child: Container(
+                              padding: EdgeInsets.all(16),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Text(
+                                    'OTP',
+                                    style: TextStyle(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Text(
+                                    'We have sent you a 6 digit otp to your mobile please confirm!',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    padding: EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 2,
+                                      ),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          '000000',
+                                          style: TextStyle(fontSize: 18),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: 20),
+                                  ElevatedButton(
+                                    onPressed: () async {
+                                      if (!RegExp(r'^[0-9]+$').hasMatch(
+                                          _model.textController1.text)) {
+                                        Navigator.pop(context);
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Please provide valid amount!',
+                                            ),
+                                          ),
+                                        );
+                                        return;
+                                      }
+                                      balanceTransfer(
+                                          widget.cardType,
+                                          int.parse(
+                                              _model.textController1.text));
+
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Money Added!',
+                                          ),
+                                        ),
+                                      );
+                                      Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => NavBarPage(
+                                              initialPage: 'MY_Card'),
+                                        ),
+                                        (r) => false,
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.red,
+                                    ),
+                                    child: Text(
+                                      'Skip',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
                     },
-                    text: 'Remove Card',
+                    text: 'Add Money',
                     options: FFButtonOptions(
                       width: 300.0,
                       height: 70.0,

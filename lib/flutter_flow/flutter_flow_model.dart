@@ -154,6 +154,40 @@ T? _getDefaultValue<T>() {
 }
 
 extension TextValidationExtensions on String? Function(BuildContext, String?)? {
-  String? Function(String?)? asValidator(BuildContext context) =>
-      this != null ? (val) => this!(context, val) : null;
+  String? Function(String?)? asValidator(BuildContext context) {
+    return this != null
+        ? (val) => this!(context, val)
+        : null;
+  }
+  
+  String? Function(String?)? onlyNumbersValidator(BuildContext context) {
+    return this != null
+        ? (value) {
+          print('valid 1');
+            if (value == null) {
+          print('valid 2');
+              return null; // No validation for null value
+            }
+            // Use a regular expression to match only numbers
+            if (RegExp(r'^[0-9]+$').hasMatch(value)) {
+          print('valid 3');
+              ScaffoldMessenger.of(context).hideCurrentSnackBar(); // Hide any existing Snackbar
+              return value; // Validation passed, value contains only numbers
+            } else {
+          print('valid 4');
+              ScaffoldMessenger.of(context).hideCurrentSnackBar(); // Hide any existing Snackbar
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Only numbers are allowed'),
+                ),
+              );
+              return null; // Validation failed
+            }
+          }
+        : (value){
+          print('valid5');
+          return null;}; // Original validator is null
+  }
 }
+
+

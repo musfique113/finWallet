@@ -270,7 +270,7 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => EditProfileWidget(
-                              userProfile: mYProfilePageUsersRecord.reference,
+                              // userProfile: mYProfilePageUsersRecord.reference,
                             ),
                           ),
                         );

@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
@@ -43,7 +45,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<UsersRecord>(
-      stream: UsersRecord.getDocument(currentUserReference!),
+      stream: UsersRecord.getDocument(UsersRecord.collection.doc(currentUser!.uid)),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -107,110 +109,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  // Container(
-                  //   width: 90.0,
-                  //   height: 90.0,
-                  //   decoration: BoxDecoration(
-                  //     color: FlutterFlowTheme.of(context).darkBackground,
-                  //     shape: BoxShape.circle,
-                  //   ),
-                  //   child: Container(
-                  //     width: 80.0,
-                  //     height: 80.0,
-                  //     clipBehavior: Clip.antiAlias,
-                  //     decoration: BoxDecoration(
-                  //       shape: BoxShape.circle,
-                  //     ),
-                  //     child: Image.network(
-                  //       valueOrDefault<String>(
-                  //         editProfileUsersRecord.photoUrl,
-                  //         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/finance-app-sample-kugwu4/assets/ijvuhvqbvns6/uiAvatar@2x.png',
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-                  // Padding(
-                  //   padding:
-                  //       EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  //   child: FFButtonWidget(
-                  //     onPressed: () async {
-                  //       final selectedMedia = await selectMedia(
-                  //         mediaSource: MediaSource.photoGallery,
-                  //         multiImage: false,
-                  //       );
-                  //       if (selectedMedia != null &&
-                  //           selectedMedia.every((m) =>
-                  //               validateFileFormat(m.storagePath, context))) {
-                  //         setState(() => _model.isDataUploading = true);
-                  //         var selectedUploadedFiles = <FFUploadedFile>[];
-                  //         var downloadUrls = <String>[];
-                  //         try {
-                  //           showUploadMessage(
-                  //             context,
-                  //             'Uploading file...',
-                  //             showLoading: true,
-                  //           );
-                  //           selectedUploadedFiles = selectedMedia
-                  //               .map((m) => FFUploadedFile(
-                  //                     name: m.storagePath.split('/').last,
-                  //                     bytes: m.bytes,
-                  //                     height: m.dimensions?.height,
-                  //                     width: m.dimensions?.width,
-                  //                     blurHash: m.blurHash,
-                  //                   ))
-                  //               .toList();
-
-                  //           downloadUrls = (await Future.wait(
-                  //             selectedMedia.map(
-                  //               (m) async =>
-                  //                   await uploadData(m.storagePath, m.bytes),
-                  //             ),
-                  //           ))
-                  //               .where((u) => u != null)
-                  //               .map((u) => u!)
-                  //               .toList();
-                  //         } finally {
-                  //           ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                  //           _model.isDataUploading = false;
-                  //         }
-                  //         if (selectedUploadedFiles.length ==
-                  //                 selectedMedia.length &&
-                  //             downloadUrls.length == selectedMedia.length) {
-                  //           setState(() {
-                  //             _model.uploadedLocalFile =
-                  //                 selectedUploadedFiles.first;
-                  //             _model.uploadedFileUrl = downloadUrls.first;
-                  //           });
-                  //           showUploadMessage(context, 'Success!');
-                  //         } else {
-                  //           setState(() {});
-                  //           showUploadMessage(context, 'Failed to upload data');
-                  //           return;
-                  //         }
-                  //       }
-                  //     },
-                  //     text: FFLocalizations.of(context).getText(
-                  //       'zoxan2gi' /* Change Photo */,
-                  //     ),
-                  //     options: FFButtonOptions(
-                  //       width: 140.0,
-                  //       height: 40.0,
-                  //       padding:
-                  //           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  //       iconPadding:
-                  //           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  //       color: FlutterFlowTheme.of(context).secondaryBackground,
-                  //       textStyle: FlutterFlowTheme.of(context).bodySmall,
-                  //       elevation: 0.0,
-                  //       borderSide: BorderSide(
-                  //         color: FlutterFlowTheme.of(context).alternate,
-                  //         width: 2.0,
-                  //       ),
-                  //       borderRadius: BorderRadius.circular(8.0),
-                  //     ),
-                  //   ),
-                  // ),
-Padding(
+                  Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
@@ -285,17 +184,17 @@ Padding(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                       ),
-                      child: Image.network(
-                        valueOrDefault<String>(
-                          _model.uploadedFileUrl,
+                      child: 
+                      ((editProfileUsersRecord.photoUrl == '' || editProfileUsersRecord.photoUrl == null) && (_model.uploadedFileUrl == '' || _model.uploadedFileUrl == null)) ?
+                      Image.network(
+                        // valueOrDefault<String>(
+                        //   _model.uploadedFileUrl,
                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/finance-app-sample-kugwu4/assets/ijvuhvqbvns6/uiAvatar@2x.png',
-                        ),
-                      ),
+                        // ),
+                      ) : ((editProfileUsersRecord.photoUrl != '' || editProfileUsersRecord.photoUrl != null) && (_model.uploadedFileUrl == '' || _model.uploadedFileUrl == null)) ? Image.network(editProfileUsersRecord.photoUrl): Image.network(_model.uploadedFileUrl),
                     ),
                   ),
                 ),
-
-
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
@@ -353,64 +252,64 @@ Padding(
                           .asValidator(context),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
-                    child: TextFormField(
-                      controller: _model.yourEmailController ??=
-                          TextEditingController(
-                        text: editProfileUsersRecord.email,
-                      ),
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: FFLocalizations.of(context).getText(
-                          'z4fstn5l' /* Email Address */,
-                        ),
-                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                        hintText: FFLocalizations.of(context).getText(
-                          'jozgvwyg' /* Your email */,
-                        ),
-                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        filled: true,
-                        fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 24.0, 20.0, 24.0),
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                      keyboardType: TextInputType.emailAddress,
-                      validator: _model.yourEmailControllerValidator
-                          .asValidator(context),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding:
+                  //       EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                  //   child: TextFormField(
+                  //     controller: _model.yourEmailController ??=
+                  //         TextEditingController(
+                  //       text: editProfileUsersRecord.email,
+                  //     ),
+                  //     obscureText: false,
+                  //     decoration: InputDecoration(
+                  //       labelText: FFLocalizations.of(context).getText(
+                  //         'z4fstn5l' /* Email Address */,
+                  //       ),
+                  //       labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                  //       hintText: FFLocalizations.of(context).getText(
+                  //         'jozgvwyg' /* Your email */,
+                  //       ),
+                  //       hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                  //       enabledBorder: OutlineInputBorder(
+                  //         borderSide: BorderSide(
+                  //           color: FlutterFlowTheme.of(context).alternate,
+                  //           width: 2.0,
+                  //         ),
+                  //         borderRadius: BorderRadius.circular(8.0),
+                  //       ),
+                  //       focusedBorder: OutlineInputBorder(
+                  //         borderSide: BorderSide(
+                  //           color: Color(0x00000000),
+                  //           width: 2.0,
+                  //         ),
+                  //         borderRadius: BorderRadius.circular(8.0),
+                  //       ),
+                  //       errorBorder: OutlineInputBorder(
+                  //         borderSide: BorderSide(
+                  //           color: Color(0x00000000),
+                  //           width: 2.0,
+                  //         ),
+                  //         borderRadius: BorderRadius.circular(8.0),
+                  //       ),
+                  //       focusedErrorBorder: OutlineInputBorder(
+                  //         borderSide: BorderSide(
+                  //           color: Color(0x00000000),
+                  //           width: 2.0,
+                  //         ),
+                  //         borderRadius: BorderRadius.circular(8.0),
+                  //       ),
+                  //       filled: true,
+                  //       fillColor:
+                  //           FlutterFlowTheme.of(context).secondaryBackground,
+                  //       contentPadding: EdgeInsetsDirectional.fromSTEB(
+                  //           20.0, 24.0, 20.0, 24.0),
+                  //     ),
+                  //     style: FlutterFlowTheme.of(context).bodyMedium,
+                  //     keyboardType: TextInputType.emailAddress,
+                  //     validator: _model.yourEmailControllerValidator
+                  //         .asValidator(context),
+                  //   ),
+                  // ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
@@ -528,9 +427,12 @@ Padding(
                         EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        if (_model.uploadedFileUrl == '' || _model.uploadedFileUrl == null){
+                          _model.uploadedFileUrl = editProfileUsersRecord.photoUrl;
+                        }
                         final usersUpdateData = createUsersRecordData(
                           displayName: _model.yourNameController.text,
-                          email: _model.yourEmailController.text,
+                          // email: _model.yourEmailController.text,
                           age: int.tryParse(_model.yourAgeController.text),
                           userTitle: valueOrDefault<String>(
                             _model.yourTitleController.text,

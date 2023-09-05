@@ -353,7 +353,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                             displayName: _model.yourNameController.text,
                             age: int.tryParse(_model.yourAgeController.text),
                             userTitle: _model.yourTitleController.text,
-                            photoUrl: '',
+                            photoUrl: _model.uploadedFileUrl,
                           );
                           await buttonLoginUsersRecord.reference
                               .update(usersUpdateData);

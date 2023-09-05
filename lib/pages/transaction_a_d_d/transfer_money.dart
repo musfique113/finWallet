@@ -83,18 +83,14 @@ class _TransferMoneryState extends State<TransferMonery>
       var balanceData = snapshot.docs[0].data();
       int currentBalance = int.parse(balanceData['cardAmount']);
 
-      if (currentBalance >= amnt) {
         String newBalance = (currentBalance + amnt).toString();
 
         await FirebaseFirestore.instance
             .collection('cards')
             .doc(snapshot.docs[0].id)
             .update({'cardAmount': newBalance});
+      return true;
 
-        return true; // Balance was sufficient, and deduction was successful.
-      } else {
-        return false; // Insufficient balance.
-      }
     } else {
       return false; // No matching card document found.
     }
@@ -300,16 +296,16 @@ class _TransferMoneryState extends State<TransferMonery>
                                             children: [
                                               Image.asset(
                                                 entry == 'Bkash'
-                                                    ? 'assets/images/bkash.png'
+                                                    ? 'assets/images/bkash_full.png'
                                                     : entry == 'Nagad'
-                                                        ? 'assets/images/nagad.png'
+                                                        ? 'assets/images/nagad_full.png'
                                                         : entry == 'Upay'
-                                                            ? 'assets/images/upay.png'
+                                                            ? 'assets/images/upay_full.png'
                                                             : entry == 'Rocket'
-                                                                ? 'assets/images/rocket.png'
+                                                                ? 'assets/images/rocket_full.jpg'
                                                                 : entry ==
                                                                         'Sure Cash'
-                                                                    ? 'assets/images/surecash.jpg'
+                                                                    ? 'assets/images/surecash_full.jpg'
                                                                     : entry ==
                                                                             'Tap'
                                                                         ? 'assets/images/tap.png'
@@ -429,16 +425,16 @@ class _TransferMoneryState extends State<TransferMonery>
                                             children: [
                                               Image.asset(
                                                 entry == 'Bkash'
-                                                    ? 'assets/images/bkash.png'
+                                                    ? 'assets/images/bkash_full.png'
                                                     : entry == 'Nagad'
-                                                        ? 'assets/images/nagad.png'
+                                                        ? 'assets/images/nagad_full.png'
                                                         : entry == 'Upay'
-                                                            ? 'assets/images/upay.png'
+                                                            ? 'assets/images/upay_full.png'
                                                             : entry == 'Rocket'
-                                                                ? 'assets/images/rocket.png'
+                                                                ? 'assets/images/rocket_full.jpg'
                                                                 : entry ==
                                                                         'Sure Cash'
-                                                                    ? 'assets/images/surecash.jpg'
+                                                                    ? 'assets/images/surecash_full.jpg'
                                                                     : entry ==
                                                                             'Tap'
                                                                         ? 'assets/images/tap.png'
@@ -597,6 +593,19 @@ class _TransferMoneryState extends State<TransferMonery>
                                       SizedBox(height: 20),
                                       ElevatedButton(
                                         onPressed: () async {
+                                          if (!RegExp(r'^[0-9]+$').hasMatch(
+                                              _model.textController1.text)) {
+                                            Navigator.pop(context);
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Please provide valid amount!',
+                                                ),
+                                              ),
+                                            );
+                                            return;
+                                          }
                                           final cardType =
                                               _model.dropValue2.toString();
                                           final cardType2 =
@@ -633,10 +642,10 @@ class _TransferMoneryState extends State<TransferMonery>
                                             cardType2: cardType2,
                                             tarAmount:
                                                 _model.textController1.text,
-                                            tarTime:
-                                                DateFormat('yyyy-MM-dd – kk:mm')
-                                                    .format(DateTime.now())
-                                                    .toString(),
+                                            tarTime: Timestamp.now(),
+                                                // DateFormat('yyyy-MM-dd – kk:mm')
+                                                //     .format(),
+                                                    // .toString(),
                                           );
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
@@ -650,12 +659,13 @@ class _TransferMoneryState extends State<TransferMonery>
                                               .collection('transactions')
                                               .doc()
                                               .set(createTransaction);
-                                          await Navigator.pushReplacement(
+                                          await Navigator.pushAndRemoveUntil(
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) => NavBarPage(
                                                   initialPage: 'MY_Card'),
                                             ),
+                                            (r) => false,
                                           );
                                         },
                                         style: ElevatedButton.styleFrom(

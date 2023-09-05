@@ -65,6 +65,8 @@ class _TransactionHistoryState extends State<TransactionHistory>
                         .collection('transactions')
                         .where('userid',
                             isEqualTo: FirebaseAuth.instance.currentUser?.uid)
+                        // .orderBy(
+                        //     'transactionTime', descending: true) // Add this line to order by the 'transactionTime' field
                         .snapshots(),
                     builder: (BuildContext context,
                         AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -90,6 +92,8 @@ class _TransactionHistoryState extends State<TransactionHistory>
                         );
                       } else {
                         var data = snapshot.data!.docs;
+                        data.sort((a, b) => (b['transactionTime'] as Timestamp)
+                            .compareTo(a['transactionTime'] as Timestamp));
                         return ListView.builder(
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
@@ -164,8 +168,7 @@ class _TransactionHistoryState extends State<TransactionHistory>
                                                                               ? 'assets/images/okwallet.png'
                                                                               : data[index]['cardType1'] == 'Tele Cash'
                                                                                   ? 'assets/images/telecash.jpg'
-                                                                                  : (Theme.of(context).brightness == Brightness.dark ? 'assets/images/finWallet_logo_landscape.png'
-                                                                                  : 'assets/images/finWallet_logo_landscapeDark@3x.png'),
+                                                                                  : (Theme.of(context).brightness == Brightness.dark ? 'assets/images/finWallet_logo_landscape.png' : 'assets/images/finWallet_logo_landscapeDark@3x.png'),
                                               //card logo
                                               width: 80.0,
                                               height: 40,
@@ -177,7 +180,7 @@ class _TransactionHistoryState extends State<TransactionHistory>
                                               color: Colors.amber,
                                             ),
                                             Image.asset(
-                                             data[index]['cardType2'] ==
+                                              data[index]['cardType2'] ==
                                                       'Bkash'
                                                   ? 'assets/images/bkash_full.png'
                                                   : data[index]['cardType2'] ==
@@ -206,8 +209,7 @@ class _TransactionHistoryState extends State<TransactionHistory>
                                                                               ? 'assets/images/okwallet.png'
                                                                               : data[index]['cardType2'] == 'Tele Cash'
                                                                                   ? 'assets/images/telecash.jpg'
-                                                                                  : (Theme.of(context).brightness == Brightness.dark ? 'assets/images/finWallet_logo_landscape.png'
-                                                                                  : 'assets/images/finWallet_logo_landscapeDark@3x.png'),
+                                                                                  : (Theme.of(context).brightness == Brightness.dark ? 'assets/images/finWallet_logo_landscape.png' : 'assets/images/finWallet_logo_landscapeDark@3x.png'),
                                               //card logo
                                               width: 80.0,
                                               height: 40,
@@ -239,7 +241,12 @@ class _TransactionHistoryState extends State<TransactionHistory>
                                                       ),
                                             ),
                                             Text(
-                                              data[index]['transactionTime'],
+                                              DateFormat('yyyy-MM-dd HH:mm')
+                                                  .format(
+                                                (data[index]['transactionTime']
+                                                        as Timestamp)
+                                                    .toDate(),
+                                              ),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium

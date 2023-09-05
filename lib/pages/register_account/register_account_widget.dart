@@ -370,6 +370,19 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                       0.0, 24.0, 0.0, 24.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      
+                                      if (!RegExp(r'^[0-9]+$').hasMatch(_model.passwordCreateController.text)) {
+                                        
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Pin should be only digit!',
+                                            ),
+                                          ),
+                                        );
+                                        return;
+                                      }
                                       if (_model
                                               .passwordCreateController.text !=
                                           _model

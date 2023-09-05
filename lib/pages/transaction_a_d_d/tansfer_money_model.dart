@@ -54,7 +54,7 @@ class TransactionADDModel extends FlutterFlowModel {
 
   Map<String, dynamic> createTransactionsRecordData({
     String? userID,
-    String? tarTime,
+    Timestamp? tarTime,
     String? tarAmount,
     String? cardType1,
     String? cardType2,

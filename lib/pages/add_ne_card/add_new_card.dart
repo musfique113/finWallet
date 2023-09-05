@@ -51,7 +51,17 @@ class _AddNewCardState extends State<AddNewCard> with TickerProviderStateMixin {
     return snapshot.docs.isNotEmpty;
   }
 
-  List<String> dataList = ['Bkash', 'Nagad', 'Upay', 'Rocket', 'Sure Cash', 'Tap', 'M Cash', 'Ok Wallet', 'Tele Cash'];
+  List<String> dataList = [
+    'Bkash',
+    'Nagad',
+    'Upay',
+    'Rocket',
+    'Sure Cash',
+    'Tap',
+    'M Cash',
+    'Ok Wallet',
+    'Tele Cash'
+  ];
   List<String> imagePaths = [
     'assets/images/bkash2.png',
     'assets/images/nagad.png',
@@ -147,6 +157,7 @@ class _AddNewCardState extends State<AddNewCard> with TickerProviderStateMixin {
                         child: TextFormField(
                           controller: _model.accountNUmberController,
                           obscureText: false,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             labelText: 'Account Number',
                             labelStyle:
@@ -185,8 +196,9 @@ class _AddNewCardState extends State<AddNewCard> with TickerProviderStateMixin {
                           ),
                           style: FlutterFlowTheme.of(context).headlineSmall,
                           textAlign: TextAlign.start,
-                          validator: _model.budgetNameControllerValidator
-                              .asValidator(context),
+                          // validator: 
+                          // _model.budgetNameControllerValidator
+                          //     .onlyNumbersValidator(context),
                         ),
                       ),
 
@@ -362,44 +374,153 @@ class _AddNewCardState extends State<AddNewCard> with TickerProviderStateMixin {
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
-                      final accountNumber = _model.accountNUmberController.text;
-                      final cardType = _model.dropValue;
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(16.0)),
+                        ),
+                        builder: (BuildContext context) {
+                          return SingleChildScrollView(
+                            child: Container(
+                              padding: EdgeInsets.all(16),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Text(
+                                    'OTP',
+                                    style: TextStyle(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Text(
+                                    'We have sent you a 6 digit otp to your mobile please confirm!',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    padding: EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 2,
+                                      ),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          '000000',
+                                          style: TextStyle(fontSize: 18),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: 20),
+                                  ElevatedButton(
+                                    onPressed: () async {
+                                      final accountNumber =
+                                          _model.accountNUmberController.text;
+                                      final cardType = _model.dropValue;
 
-                      final isCardExist =
-                          await doesCardExist(cardType.toString());
-                      if (isCardExist) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'You can add one type of card only once!',
+                                      final isCardExist = await doesCardExist(
+                                          cardType.toString());
+                                      if (isCardExist) {
+                                        Navigator.pop(context);
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'You can add one type of card only once!',
+                                            ),
+                                          ),
+                                        );
+                                        return;
+                                      }
+                                      if (!RegExp(r'^[0-9]+$').hasMatch(accountNumber)) {
+                                        Navigator.pop(context);
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Account Number should be only digits!',
+                                            ),
+                                          ),
+                                        );
+                                        return;
+                                      }
+                                      if (!RegExp(r'^[0-9]+$').hasMatch(_model.textController1.text)) {
+                                        Navigator.pop(context);
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Please provide valid amount!',
+                                            ),
+                                          ),
+                                        );
+                                        return;
+                                      }
+
+                                      final cardsCreateData =
+                                          createcardsRecordData(
+                                        userID: FirebaseAuth
+                                            .instance.currentUser?.uid,
+                                        accountNumber: accountNumber,
+                                        cardAmount: _model.textController1.text,
+                                        cardCreated: getCurrentTimestamp,
+                                        cardType: cardType,
+                                      );
+
+                                      await CardsRecord.collection
+                                          .doc()
+                                          .set(cardsCreateData);
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Card Added Successfully!',
+                                          ),
+                                        ),
+                                      );
+                                      await Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => NavBarPage(
+                                              initialPage: 'MY_Card'),
+                                        ),
+                                        (r) => false,
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.red,
+                                    ),
+                                    child: Text(
+                                      'Skip',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                        return;
-                      }
-
-                      final cardsCreateData = createcardsRecordData(
-                        userID: FirebaseAuth.instance.currentUser?.uid,
-                        accountNumber: accountNumber,
-                        cardAmount: _model.textController1.text,
-                        cardCreated: getCurrentTimestamp,
-                        cardType: cardType,
-                      );
-
-                      await CardsRecord.collection.doc().set(cardsCreateData);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Card Added Successfully!',
-                          ),
-                        ),
-                      );
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'MY_Card'),
-                        ),
+                          );
+                        },
                       );
                     },
                     text: FFLocalizations.of(context).getText(
