@@ -191,18 +191,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: TextFormField(
-                                    keyboardType: TextInputType.number,
-                                    maxLength: 6,
+                                    keyboardType: TextInputType.visiblePassword,
                                     controller: _model.passwordLoginController,
                                     obscureText: !_model.passwordLoginVisibility,
                                     decoration: InputDecoration(
                                       counterText: '',
                                       labelText:
-                                          'Pin',
+                                          'Password',
                                       labelStyle:
                                           FinWalletTheme.of(context).bodySmall,
                                       hintText:
-                                         'Enter Your Six Digit Pin',
+                                         'Enter Your Password',
                                       hintStyle:
                                           FinWalletTheme.of(context).bodySmall,
                                       enabledBorder: OutlineInputBorder(

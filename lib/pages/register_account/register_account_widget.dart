@@ -204,19 +204,18 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: TextFormField(
-                                    keyboardType: TextInputType.number,
-                                    maxLength: 6,
+                                    keyboardType: TextInputType.visiblePassword,
                                     controller: _model.passwordCreateController,
                                     obscureText:
                                         !_model.passwordCreateVisibility,
                                     decoration: InputDecoration(
                                       counterText: '',
                                       labelText:
-                                         'Pin',
+                                         'Password',
                                       labelStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       hintText:
-                                          'Enter Your Six Digit Pin',
+                                          'Enter Your Password',
                                       hintStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       enabledBorder: OutlineInputBorder(
@@ -286,8 +285,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: TextFormField(
-                                    keyboardType: TextInputType.number,
-                                    maxLength: 6,
+                                    keyboardType: TextInputType.visiblePassword,
                                     controller:
                                         _model.passwordConfirmController,
                                     obscureText:
@@ -295,11 +293,11 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                     decoration: InputDecoration(
                                       counterText: '',
                                       labelText:
-                                          'Confirm Pin',
+                                          'Confirm Password',
                                       labelStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       hintText:
-                                          'Enter Your Six Digit Pin',
+                                          'Enter Your Password',
                                       hintStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       enabledBorder: OutlineInputBorder(
@@ -377,7 +375,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              'Pin should be only digit!',
+                                              'Enter valid password',
                                             ),
                                           ),
                                         );
