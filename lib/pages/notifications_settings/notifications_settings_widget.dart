@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'notifications_settings_model.dart';
@@ -39,9 +39,9 @@ class _NotificationsSettingsWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      backgroundColor: FinWalletTheme.of(context).secondaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FinWalletTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         leading: InkWell(
           splashColor: Colors.transparent,
@@ -53,7 +53,7 @@ class _NotificationsSettingsWidgetState
           },
           child: Icon(
             Icons.chevron_left_rounded,
-            color: FlutterFlowTheme.of(context).grayLight,
+            color: FinWalletTheme.of(context).grayLight,
             size: 32.0,
           ),
         ),
@@ -61,7 +61,7 @@ class _NotificationsSettingsWidgetState
           FFLocalizations.of(context).getText(
             'sc4ff4ce' /* Notifications */,
           ),
-          style: FlutterFlowTheme.of(context).headlineSmall,
+          style: FinWalletTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -88,7 +88,7 @@ class _NotificationsSettingsWidgetState
                   width: 40.0,
                   height: 40.0,
                   child: SpinKitPumpingHeart(
-                    color: FlutterFlowTheme.of(context).primary,
+                    color: FinWalletTheme.of(context).primary,
                     size: 40.0,
                   ),
                 ),
@@ -107,7 +107,7 @@ class _NotificationsSettingsWidgetState
                           FFLocalizations.of(context).getText(
                             'r72zvrv5' /* Choose what notifcations you w... */,
                           ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FinWalletTheme.of(context).bodySmall,
                         ),
                       ),
                     ],
@@ -124,17 +124,17 @@ class _NotificationsSettingsWidgetState
                       FFLocalizations.of(context).getText(
                         'gjygkr0n' /* Push Notifications */,
                       ),
-                      style: FlutterFlowTheme.of(context).headlineSmall,
+                      style: FinWalletTheme.of(context).headlineSmall,
                     ),
                     subtitle: Text(
                       FFLocalizations.of(context).getText(
                         '3y3yhxbk' /* Receive Push notifications fro... */,
                       ),
-                      style: FlutterFlowTheme.of(context).bodySmall,
+                      style: FinWalletTheme.of(context).bodySmall,
                     ),
-                    tileColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    activeColor: FlutterFlowTheme.of(context).tertiary,
-                    activeTrackColor: FlutterFlowTheme.of(context).primary,
+                    tileColor: FinWalletTheme.of(context).secondaryBackground,
+                    activeColor: FinWalletTheme.of(context).tertiary,
+                    activeTrackColor: FinWalletTheme.of(context).primary,
                     dense: false,
                     controlAffinity: ListTileControlAffinity.trailing,
                     contentPadding:
@@ -150,17 +150,17 @@ class _NotificationsSettingsWidgetState
                     FFLocalizations.of(context).getText(
                       '1ytebj35' /* Email Notifications */,
                     ),
-                    style: FlutterFlowTheme.of(context).headlineSmall,
+                    style: FinWalletTheme.of(context).headlineSmall,
                   ),
                   subtitle: Text(
                     FFLocalizations.of(context).getText(
                       '9lvh5nst' /* Receive email notifications fr... */,
                     ),
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FinWalletTheme.of(context).bodySmall,
                   ),
-                  tileColor: FlutterFlowTheme.of(context).secondaryBackground,
-                  activeColor: FlutterFlowTheme.of(context).tertiary,
-                  activeTrackColor: FlutterFlowTheme.of(context).primary,
+                  tileColor: FinWalletTheme.of(context).secondaryBackground,
+                  activeColor: FinWalletTheme.of(context).tertiary,
+                  activeTrackColor: FinWalletTheme.of(context).primary,
                   dense: false,
                   controlAffinity: ListTileControlAffinity.trailing,
                   contentPadding:
@@ -175,17 +175,17 @@ class _NotificationsSettingsWidgetState
                     FFLocalizations.of(context).getText(
                       '69d2j74u' /* Location Services */,
                     ),
-                    style: FlutterFlowTheme.of(context).headlineSmall,
+                    style: FinWalletTheme.of(context).headlineSmall,
                   ),
                   subtitle: Text(
                     FFLocalizations.of(context).getText(
                       '3k8cuv0d' /* Allow us to track your locatio... */,
                     ),
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FinWalletTheme.of(context).bodySmall,
                   ),
-                  tileColor: FlutterFlowTheme.of(context).secondaryBackground,
-                  activeColor: FlutterFlowTheme.of(context).tertiary,
-                  activeTrackColor: FlutterFlowTheme.of(context).primary,
+                  tileColor: FinWalletTheme.of(context).secondaryBackground,
+                  activeColor: FinWalletTheme.of(context).tertiary,
+                  activeTrackColor: FinWalletTheme.of(context).primary,
                   dense: false,
                   controlAffinity: ListTileControlAffinity.trailing,
                   contentPadding:
@@ -207,11 +207,11 @@ class _NotificationsSettingsWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
+                      color: FinWalletTheme.of(context).primary,
                       textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
+                          FinWalletTheme.of(context).titleSmall.override(
                                 fontFamily: 'Lexend',
-                                color: FlutterFlowTheme.of(context).textColor,
+                                color: FinWalletTheme.of(context).textColor,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(

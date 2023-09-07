@@ -3,10 +3,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
+import '/fin_wallet/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'edit_profile_model.dart';
@@ -50,13 +50,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FinWalletTheme.of(context).secondaryBackground,
             body: Center(
               child: SizedBox(
                 width: 40.0,
                 height: 40.0,
                 child: SpinKitPumpingHeart(
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: FinWalletTheme.of(context).primary,
                   size: 40.0,
                 ),
               ),
@@ -66,9 +66,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
         final editProfileUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: FinWalletTheme.of(context).secondaryBackground,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FinWalletTheme.of(context).secondaryBackground,
             automaticallyImplyLeading: false,
             leading: InkWell(
               splashColor: Colors.transparent,
@@ -80,7 +80,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               },
               child: Icon(
                 Icons.chevron_left_rounded,
-                color: FlutterFlowTheme.of(context).grayLight,
+                color: FinWalletTheme.of(context).grayLight,
                 size: 32.0,
               ),
             ),
@@ -88,7 +88,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               FFLocalizations.of(context).getText(
                 '4rzqov3y' /* Edit Profile */,
               ),
-              style: FlutterFlowTheme.of(context).headlineSmall,
+              style: FinWalletTheme.of(context).headlineSmall,
             ),
             actions: [],
             centerTitle: false,
@@ -122,8 +122,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         context: context,
                         allowPhoto: true,
                         backgroundColor:
-                            FlutterFlowTheme.of(context).darkBackground,
-                        textColor: FlutterFlowTheme.of(context).textColor,
+                            FinWalletTheme.of(context).darkBackground,
+                        textColor: FinWalletTheme.of(context).textColor,
                         pickerFontFamily: 'Lexend Deca',
                       );
                       if (selectedMedia != null &&
@@ -189,7 +189,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       Image.network(
                         // valueOrDefault<String>(
                         //   _model.uploadedFileUrl,
-                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/finance-app-sample-kugwu4/assets/ijvuhvqbvns6/uiAvatar@2x.png',
+                          'https://storage.googleapis.com/FinWallet-io-6f20.appspot.com/projects/finance-app-sample-kugwu4/assets/ijvuhvqbvns6/uiAvatar@2x.png',
                         // ),
                       ) : ((editProfileUsersRecord.photoUrl != '' || editProfileUsersRecord.photoUrl != null) && (_model.uploadedFileUrl == '' || _model.uploadedFileUrl == null)) ? Image.network(editProfileUsersRecord.photoUrl): Image.network(_model.uploadedFileUrl),
                     ),
@@ -208,14 +208,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         labelText: FFLocalizations.of(context).getText(
                           '3p9y21e2' /* Your Name */,
                         ),
-                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        labelStyle: FinWalletTheme.of(context).bodySmall,
                         hintText: FFLocalizations.of(context).getText(
                           'dw9gmjdc' /* Please enter a valid number... */,
                         ),
-                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                        hintStyle: FinWalletTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: FinWalletTheme.of(context).alternate,
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(8.0),
@@ -243,11 +243,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         ),
                         filled: true,
                         fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
+                            FinWalletTheme.of(context).secondaryBackground,
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 20.0, 24.0),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FinWalletTheme.of(context).bodyMedium,
                       validator: _model.yourNameControllerValidator
                           .asValidator(context),
                     ),
@@ -265,14 +265,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                   //       labelText: FFLocalizations.of(context).getText(
                   //         'z4fstn5l' /* Email Address */,
                   //       ),
-                  //       labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                  //       labelStyle: FinWalletTheme.of(context).bodySmall,
                   //       hintText: FFLocalizations.of(context).getText(
                   //         'jozgvwyg' /* Your email */,
                   //       ),
-                  //       hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                  //       hintStyle: FinWalletTheme.of(context).bodySmall,
                   //       enabledBorder: OutlineInputBorder(
                   //         borderSide: BorderSide(
-                  //           color: FlutterFlowTheme.of(context).alternate,
+                  //           color: FinWalletTheme.of(context).alternate,
                   //           width: 2.0,
                   //         ),
                   //         borderRadius: BorderRadius.circular(8.0),
@@ -300,11 +300,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                   //       ),
                   //       filled: true,
                   //       fillColor:
-                  //           FlutterFlowTheme.of(context).secondaryBackground,
+                  //           FinWalletTheme.of(context).secondaryBackground,
                   //       contentPadding: EdgeInsetsDirectional.fromSTEB(
                   //           20.0, 24.0, 20.0, 24.0),
                   //     ),
-                  //     style: FlutterFlowTheme.of(context).bodyMedium,
+                  //     style: FinWalletTheme.of(context).bodyMedium,
                   //     keyboardType: TextInputType.emailAddress,
                   //     validator: _model.yourEmailControllerValidator
                   //         .asValidator(context),
@@ -323,14 +323,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         labelText: FFLocalizations.of(context).getText(
                           '8h1cjk5a' /* Your Age */,
                         ),
-                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        labelStyle: FinWalletTheme.of(context).bodySmall,
                         hintText: FFLocalizations.of(context).getText(
                           '5v21r6gb' /* i.e. 34 */,
                         ),
-                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                        hintStyle: FinWalletTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: FinWalletTheme.of(context).alternate,
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(8.0),
@@ -358,11 +358,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         ),
                         filled: true,
                         fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
+                            FinWalletTheme.of(context).secondaryBackground,
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 20.0, 24.0),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FinWalletTheme.of(context).bodyMedium,
                       keyboardType: TextInputType.number,
                       validator: _model.yourAgeControllerValidator
                           .asValidator(context),
@@ -381,11 +381,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         labelText: FFLocalizations.of(context).getText(
                           'zvymbfia' /* Your Title */,
                         ),
-                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                        labelStyle: FinWalletTheme.of(context).bodySmall,
+                        hintStyle: FinWalletTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: FinWalletTheme.of(context).alternate,
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(8.0),
@@ -413,11 +413,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         ),
                         filled: true,
                         fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
+                            FinWalletTheme.of(context).secondaryBackground,
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 20.0, 24.0),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FinWalletTheme.of(context).bodyMedium,
                       validator: _model.yourTitleControllerValidator
                           .asValidator(context),
                     ),
@@ -454,11 +454,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: FinWalletTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                            FinWalletTheme.of(context).titleSmall.override(
                                   fontFamily: 'Lexend',
-                                  color: FlutterFlowTheme.of(context).textColor,
+                                  color: FinWalletTheme.of(context).textColor,
                                 ),
                         elevation: 3.0,
                         borderSide: BorderSide(

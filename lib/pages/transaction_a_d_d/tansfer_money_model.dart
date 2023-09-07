@@ -1,10 +1,10 @@
 import 'package:mfsbd/backend/backend.dart';
 
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/form_field_controller.dart';
 import 'package:flutter/material.dart';
 
-class TransactionADDModel extends FlutterFlowModel {
+class TransactionADDModel extends FinWalletModel {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();

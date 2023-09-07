@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_util.dart';
+import '/fin_wallet/fin_wallet_util.dart';
 import 'package:flutter/material.dart';
 
-class PrivacyPolicyModel extends FlutterFlowModel {
+class PrivacyPolicyModel extends FinWalletModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

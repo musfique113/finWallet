@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'change_password_model.dart';
@@ -37,9 +37,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      backgroundColor: FinWalletTheme.of(context).secondaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FinWalletTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         leading: InkWell(
           splashColor: Colors.transparent,
@@ -51,7 +51,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
           },
           child: Icon(
             Icons.chevron_left_rounded,
-            color: FlutterFlowTheme.of(context).grayLight,
+            color: FinWalletTheme.of(context).grayLight,
             size: 32.0,
           ),
         ),
@@ -59,7 +59,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
           FFLocalizations.of(context).getText(
             'l5iggwaz' /* Change Password */,
           ),
-          style: FlutterFlowTheme.of(context).headlineSmall,
+          style: FinWalletTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -86,7 +86,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                   width: 40.0,
                   height: 40.0,
                   child: SpinKitPumpingHeart(
-                    color: FlutterFlowTheme.of(context).primary,
+                    color: FinWalletTheme.of(context).primary,
                     size: 40.0,
                   ),
                 ),
@@ -106,7 +106,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                           FFLocalizations.of(context).getText(
                             '2b97u8y5' /* Enter the email associated wit... */,
                           ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FinWalletTheme.of(context).bodySmall,
                         ),
                       ),
                     ],
@@ -125,14 +125,14 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       labelText: FFLocalizations.of(context).getText(
                         'ajy1c3r9' /* Email Address */,
                       ),
-                      labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                      labelStyle: FinWalletTheme.of(context).bodySmall,
                       hintText: FFLocalizations.of(context).getText(
                         'hsqfoxya' /* Enter your email... */,
                       ),
-                      hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                      hintStyle: FinWalletTheme.of(context).bodySmall,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: FinWalletTheme.of(context).alternate,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
@@ -160,11 +160,11 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       ),
                       filled: true,
                       fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
+                          FinWalletTheme.of(context).secondaryBackground,
                       contentPadding: EdgeInsetsDirectional.fromSTEB(
                           20.0, 24.0, 20.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FinWalletTheme.of(context).bodyMedium,
                     validator: _model.emailAddressControllerValidator
                         .asValidator(context),
                   ),
@@ -198,11 +198,11 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
+                      color: FinWalletTheme.of(context).primary,
                       textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
+                          FinWalletTheme.of(context).titleSmall.override(
                                 fontFamily: 'Lexend',
-                                color: FlutterFlowTheme.of(context).textColor,
+                                color: FinWalletTheme.of(context).textColor,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(

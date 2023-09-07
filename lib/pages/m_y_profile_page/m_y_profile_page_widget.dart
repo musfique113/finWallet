@@ -2,10 +2,10 @@ import 'package:mfsbd/index.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_icon_button.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'm_y_profile_page_model.dart';
@@ -49,13 +49,13 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: FinWalletTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
                 width: 40.0,
                 height: 40.0,
                 child: SpinKitPumpingHeart(
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: FinWalletTheme.of(context).primary,
                   size: 40.0,
                 ),
               ),
@@ -65,7 +65,7 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
         final mYProfilePageUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FinWalletTheme.of(context).primaryBackground,
           body: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -104,7 +104,7 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                             children: [
                               Card(
                                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: FinWalletTheme.of(context).primary,
                                 elevation: 2.0,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(40.0),
@@ -122,7 +122,7 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                     child: Image.network(valueOrDefault<String>(
                                       mYProfilePageUsersRecord.photoUrl,
                                       'https://firebasestorage.googleapis.com/v0/b/mfsbd-25488.appspot.com/o/user_1177568.png?alt=media&token=2a1946f5-73cb-457c-957b-f68547ffafbd',
-                                    )),
+                                    ),fit: BoxFit.cover,),
                                   ),
                                 ),
                               ),
@@ -143,13 +143,13 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                         ),
-                                        child: FlutterFlowIconButton(
+                                        child: FinWalletIconButton(
                                           borderColor: Colors.transparent,
                                           borderRadius: 30.0,
                                           buttonSize: 46.0,
                                           icon: Icon(
                                             Icons.login_rounded,
-                                            color: FlutterFlowTheme.of(context)
+                                            color: FinWalletTheme.of(context)
                                                 .textColor,
                                             size: 24.0,
                                           ),
@@ -184,11 +184,11 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                   mYProfilePageUsersRecord.displayName,
                                   'Random user',
                                 ),
-                                style: FlutterFlowTheme.of(context)
+                                style: FinWalletTheme.of(context)
                                     .headlineSmall
                                     .override(
                                       fontFamily: 'Lexend',
-                                      color: FlutterFlowTheme.of(context)
+                                      color: FinWalletTheme.of(context)
                                           .textColor,
                                     ),
                               ),
@@ -206,7 +206,7 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                   mYProfilePageUsersRecord.userTitle,
                                   'Badass Busybody',
                                 ),
-                                style: FlutterFlowTheme.of(context)
+                                style: FinWalletTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Lexend',
@@ -220,11 +220,11 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                   4.0, 8.0, 0.0, 0.0),
                               child: Text(
                                 mYProfilePageUsersRecord.email,
-                                style: FlutterFlowTheme.of(context)
+                                style: FinWalletTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Lexend',
-                                      color: FlutterFlowTheme.of(context)
+                                      color: FinWalletTheme.of(context)
                                           .textColor,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -249,7 +249,7 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                             FFLocalizations.of(context).getText(
                               'f1bvbey3' /* My Account */,
                             ),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FinWalletTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
@@ -286,10 +286,10 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                           height: 60.0,
                           decoration: BoxDecoration(
                             color:
-                                FlutterFlowTheme.of(context).primaryBackground,
+                                FinWalletTheme.of(context).primaryBackground,
                             borderRadius: BorderRadius.circular(8.0),
                             border: Border.all(
-                              color: FlutterFlowTheme.of(context).alternate,
+                              color: FinWalletTheme.of(context).alternate,
                               width: 2.0,
                             ),
                           ),
@@ -305,9 +305,9 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                     'i61y9ibx' /* Edit Profile */,
                                   ),
                                   style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                      FinWalletTheme.of(context).bodyMedium,
                                 ),
-                                FlutterFlowIconButton(
+                                FinWalletIconButton(
                                   borderColor: Colors.transparent,
                                   borderRadius: 30.0,
                                   buttonSize: 46.0,
@@ -357,11 +357,11 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                             width: MediaQuery.of(context).size.width * 0.9,
                             height: 60.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
+                              color: FinWalletTheme.of(context)
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
-                                color: FlutterFlowTheme.of(context).alternate,
+                                color: FinWalletTheme.of(context).alternate,
                                 width: 2.0,
                               ),
                             ),
@@ -378,9 +378,9 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                       '03k0vw86' /* Change Password */,
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                   ),
-                                  FlutterFlowIconButton(
+                                  FinWalletIconButton(
                                     borderColor: Colors.transparent,
                                     borderRadius: 30.0,
                                     buttonSize: 46.0,
@@ -432,11 +432,11 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                             width: MediaQuery.of(context).size.width * 0.9,
                             height: 60.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
+                              color: FinWalletTheme.of(context)
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
-                                color: FlutterFlowTheme.of(context).alternate,
+                                color: FinWalletTheme.of(context).alternate,
                                 width: 2.0,
                               ),
                             ),
@@ -453,9 +453,9 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                       '6w6wv95p' /* Notification Settings */,
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                   ),
-                                  FlutterFlowIconButton(
+                                  FinWalletIconButton(
                                     borderColor: Colors.transparent,
                                     borderRadius: 30.0,
                                     buttonSize: 46.0,
@@ -507,11 +507,11 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                             width: MediaQuery.of(context).size.width * 0.9,
                             height: 60.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
+                              color: FinWalletTheme.of(context)
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
-                                color: FlutterFlowTheme.of(context).alternate,
+                                color: FinWalletTheme.of(context).alternate,
                                 width: 2.0,
                               ),
                             ),
@@ -528,9 +528,9 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                       '9aogde79' /* Tutorial */,
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                   ),
-                                  FlutterFlowIconButton(
+                                  FinWalletIconButton(
                                     borderColor: Colors.transparent,
                                     borderRadius: 30.0,
                                     buttonSize: 46.0,
@@ -581,11 +581,11 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                             width: MediaQuery.of(context).size.width * 0.9,
                             height: 60.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
+                              color: FinWalletTheme.of(context)
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
-                                color: FlutterFlowTheme.of(context).alternate,
+                                color: FinWalletTheme.of(context).alternate,
                                 width: 2.0,
                               ),
                             ),
@@ -602,9 +602,9 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                                       'eojlfs66' /* Privacy Policy */,
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                   ),
-                                  FlutterFlowIconButton(
+                                  FinWalletIconButton(
                                     borderColor: Colors.transparent,
                                     borderRadius: 30.0,
                                     buttonSize: 46.0,
@@ -644,9 +644,9 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondary,
+                        color: FinWalletTheme.of(context).secondary,
                         textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                            FinWalletTheme.of(context).titleSmall.override(
                                   fontFamily: 'Lexend',
                                   color: Colors.white,
                                 ),
@@ -677,9 +677,9 @@ class _MYProfilePageWidgetState extends State<MYProfilePageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondary,
+                        color: FinWalletTheme.of(context).secondary,
                         textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                            FinWalletTheme.of(context).titleSmall.override(
                                   fontFamily: 'Lexend',
                                   color: Colors.white,
                                 ),

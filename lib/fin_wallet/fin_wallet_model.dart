@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
-Widget wrapWithModel<T extends FlutterFlowModel>({
+Widget wrapWithModel<T extends FinWalletModel>({
   required T model,
   required Widget child,
   required VoidCallback updateCallback,
@@ -25,7 +25,7 @@ Widget wrapWithModel<T extends FlutterFlowModel>({
   );
 }
 
-T createModel<T extends FlutterFlowModel>(
+T createModel<T extends FinWalletModel>(
   BuildContext context,
   T Function() defaultBuilder,
 ) {
@@ -34,7 +34,7 @@ T createModel<T extends FlutterFlowModel>(
   return model;
 }
 
-abstract class FlutterFlowModel {
+abstract class FinWalletModel {
   // Initialization methods
   bool _isInitialized = false;
   void initState(BuildContext context);
@@ -62,7 +62,7 @@ abstract class FlutterFlowModel {
   // Function to call when the model receives an update.
   VoidCallback _updateCallback = () {};
   void onUpdate() => updateOnChange ? _updateCallback() : () {};
-  FlutterFlowModel setOnUpdate({
+  FinWalletModel setOnUpdate({
     bool updateOnChange = false,
     required VoidCallback onUpdate,
   }) =>
@@ -76,8 +76,8 @@ abstract class FlutterFlowModel {
   }
 }
 
-class FlutterFlowDynamicModels<T extends FlutterFlowModel> {
-  FlutterFlowDynamicModels(this.defaultBuilder);
+class FinWalletDynamicModels<T extends FinWalletModel> {
+  FinWalletDynamicModels(this.defaultBuilder);
 
   final T Function() defaultBuilder;
   final Map<String, T> _childrenModels = {};

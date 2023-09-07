@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 import '../add_ne_card/add_new_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -37,7 +37,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FinWalletTheme.of(context).primaryBackground,
       body: SafeArea(
         top: true,
         child: Column(
@@ -127,7 +127,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .displaySmall,
                                             ),
                                           ),
@@ -148,7 +148,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .bodySmall,
                                             ),
                                           ),
@@ -198,7 +198,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .displaySmall,
                                             ),
                                           ),
@@ -219,7 +219,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .bodySmall,
                                             ),
                                           ),
@@ -266,7 +266,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                              'Transaction History Analysis',
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .displaySmall,
                                             ),
                                           ),
@@ -284,7 +284,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                              'Know where your funds are and how they can be adjusted',
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .bodySmall,
                                             ),
                                           ),
@@ -322,7 +322,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 dotHeight: 4.0,
                                 dotColor: Color(0x8AC6CAD4),
                                 activeDotColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                    FinWalletTheme.of(context).primaryText,
                                 paintStyle: PaintingStyle.fill,
                               ),
                             ),
@@ -365,11 +365,11 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        color: FinWalletTheme.of(context).secondaryBackground,
                         textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                            FinWalletTheme.of(context).titleSmall.override(
                                   fontFamily: 'Lexend',
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: FinWalletTheme.of(context).primary,
                                 ),
                         elevation: 2.0,
                         borderSide: BorderSide(

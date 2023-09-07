@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'm_y_budgets_model.dart';
@@ -38,13 +38,13 @@ class _TransactionHistoryState extends State<TransactionHistory>
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FinWalletTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FinWalletTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
           'Transaction History',
-          style: FlutterFlowTheme.of(context).displaySmall,
+          style: FinWalletTheme.of(context).displaySmall,
         ),
         actions: [],
         centerTitle: false,
@@ -76,7 +76,7 @@ class _TransactionHistoryState extends State<TransactionHistory>
                             width: 40.0,
                             height: 40.0,
                             child: SpinKitPumpingHeart(
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: FinWalletTheme.of(context).primary,
                               size: 40.0,
                             ),
                           ),
@@ -229,12 +229,12 @@ class _TransactionHistoryState extends State<TransactionHistory>
                                             Text(
                                               '৳ ${data[index]['transactionAmount']}',
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .displaySmall
                                                       .override(
                                                         fontFamily: 'Lexend',
                                                         color:
-                                                            FlutterFlowTheme.of(
+                                                            FinWalletTheme.of(
                                                                     context)
                                                                 .textColor,
                                                         fontSize: 32.0,
@@ -247,12 +247,12 @@ class _TransactionHistoryState extends State<TransactionHistory>
                                                         as Timestamp)
                                                     .toDate(),
                                               ),
-                                              style: FlutterFlowTheme.of(
+                                              style: FinWalletTheme.of(
                                                       context)
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Roboto Mono',
-                                                    color: FlutterFlowTheme.of(
+                                                    color: FinWalletTheme.of(
                                                             context)
                                                         .textColor,
                                                   ),

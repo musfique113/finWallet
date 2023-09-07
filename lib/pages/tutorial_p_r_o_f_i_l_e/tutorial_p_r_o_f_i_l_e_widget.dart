@@ -1,5 +1,5 @@
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -35,9 +35,9 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      backgroundColor: FinWalletTheme.of(context).secondaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FinWalletTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         leading: InkWell(
           splashColor: Colors.transparent,
@@ -49,7 +49,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
           },
           child: Icon(
             Icons.chevron_left_rounded,
-            color: FlutterFlowTheme.of(context).grayLight,
+            color: FinWalletTheme.of(context).grayLight,
             size: 32.0,
           ),
         ),
@@ -57,7 +57,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
           FFLocalizations.of(context).getText(
             '38wb3rix' /* Tutorial */,
           ),
-          style: FlutterFlowTheme.of(context).headlineSmall,
+          style: FinWalletTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -152,7 +152,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .displaySmall,
                                             ),
                                           ),
@@ -173,7 +173,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .bodySmall,
                                             ),
                                           ),
@@ -223,7 +223,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .displaySmall,
                                             ),
                                           ),
@@ -244,7 +244,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .bodySmall,
                                             ),
                                           ),
@@ -291,7 +291,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
                                              'Transaction History Analysis',
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .displaySmall,
                                             ),
                                           ),
@@ -309,7 +309,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
                                              'Know where your funds are and how they can be adjusted',
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .bodySmall,
                                             ),
                                           ),
@@ -347,7 +347,7 @@ class _TutorialPROFILEWidgetState extends State<TutorialPROFILEWidget> {
                                 dotHeight: 4.0,
                                 dotColor: Color(0x8AC6CAD4),
                                 activeDotColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                    FinWalletTheme.of(context).primaryText,
                                 paintStyle: PaintingStyle.fill,
                               ),
                             ),

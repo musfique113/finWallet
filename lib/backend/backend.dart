@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mfsbd/backend/schema/create_card_recprd.dart';
 import '../auth/firebase_auth/auth_util.dart';
 
-import '../flutter_flow/flutter_flow_util.dart';
+import '../fin_wallet/fin_wallet_util.dart';
 import 'schema/util/firestore_util.dart';
 
 import 'schema/users_record.dart';

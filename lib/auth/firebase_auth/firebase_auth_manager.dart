@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../auth_manager.dart';
 // import '../base_auth_user_provider.dart';
-// import '../../flutter_flow/flutter_flow_util.dart';
+// import '../../fin_wallet/fin_wallet_util.dart';
 
 import '/backend/backend.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';

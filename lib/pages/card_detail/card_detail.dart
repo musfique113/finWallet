@@ -5,10 +5,10 @@ import 'package:mfsbd/index.dart';
 import 'package:mfsbd/pages/card_detail/add_money.dart';
 
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_icon_button.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 import '/main.dart';
 import 'package:flutter/material.dart';
 export 'card_detail_model.dart';
@@ -136,7 +136,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).tertiary,
+      backgroundColor: FinWalletTheme.of(context).tertiary,
       body: Form(
         key: _model.formKey,
         autovalidateMode: AutovalidateMode.disabled,
@@ -158,7 +158,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                 width: MediaQuery.of(context).size.width * 1.0,
                 height: MediaQuery.of(context).size.height * 0.8,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  color: FinWalletTheme.of(context).secondaryBackground,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(16.0),
                     bottomRight: Radius.circular(16.0),
@@ -178,23 +178,23 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                         children: [
                           Text(
                             widget.cardType,
-                            style: FlutterFlowTheme.of(context).displaySmall,
+                            style: FinWalletTheme.of(context).displaySmall,
                           ),
                           Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color:
-                                FlutterFlowTheme.of(context).primaryBackground,
+                                FinWalletTheme.of(context).primaryBackground,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
-                            child: FlutterFlowIconButton(
+                            child: FinWalletIconButton(
                               borderColor: Colors.transparent,
                               borderRadius: 30.0,
                               buttonSize: 48.0,
                               icon: Icon(
                                 Icons.close_rounded,
                                 color:
-                                    FlutterFlowTheme.of(context).secondaryText,
+                                    FinWalletTheme.of(context).secondaryText,
                                 size: 30.0,
                               ),
                               onPressed: () async {
@@ -256,7 +256,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                             height: 40.0,
                                             child: SpinKitPumpingHeart(
                                               color:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .primary,
                                               size: 40.0,
                                             ),
@@ -277,11 +277,11 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                               Text(
                                                 'Your Card May be suspended or deleted!',
                                                 style:
-                                                    FlutterFlowTheme.of(context)
+                                                    FinWalletTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Lexend',
-                                                          color: FlutterFlowTheme
+                                                          color: FinWalletTheme
                                                                   .of(context)
                                                               .textColor,
                                                         ),
@@ -317,13 +317,13 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                                           '6t7n9ugd' /* Balance */,
                                                         ),
                                                         style:
-                                                            FlutterFlowTheme.of(
+                                                            FinWalletTheme.of(
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend',
-                                                                  color: FlutterFlowTheme.of(
+                                                                  color: FinWalletTheme.of(
                                                                           context)
                                                                       .textColor,
                                                                 ),
@@ -331,13 +331,13 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                                       Text(
                                                         '৳${data[0]['cardAmount']}',
                                                         style:
-                                                            FlutterFlowTheme.of(
+                                                            FinWalletTheme.of(
                                                                     context)
                                                                 .displaySmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend',
-                                                                  color: FlutterFlowTheme.of(
+                                                                  color: FinWalletTheme.of(
                                                                           context)
                                                                       .textColor,
                                                                   fontSize:
@@ -351,13 +351,13 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                                         CrossAxisAlignment.end,
                                                     children: [
                                                       Text('Account Number',
-                                                          style: FlutterFlowTheme
+                                                          style: FinWalletTheme
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto Mono',
-                                                                color: FlutterFlowTheme.of(
+                                                                color: FinWalletTheme.of(
                                                                         context)
                                                                     .textColor,
                                                               )),
@@ -365,13 +365,13 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                                         data[0]
                                                             ['accountNumber'],
                                                         style:
-                                                            FlutterFlowTheme.of(
+                                                            FinWalletTheme.of(
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto Mono',
-                                                                  color: FlutterFlowTheme.of(
+                                                                  color: FinWalletTheme.of(
                                                                           context)
                                                                       .textColor,
                                                                 ),
@@ -394,13 +394,13 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                                     Text(
                                                       'Regular',
                                                       style:
-                                                          FlutterFlowTheme.of(
+                                                          FinWalletTheme.of(
                                                                   context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend',
-                                                                color: FlutterFlowTheme.of(
+                                                                color: FinWalletTheme.of(
                                                                         context)
                                                                     .textColor,
                                                               ),
@@ -477,7 +477,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                             width: MediaQuery.of(context).size.width * 0.40,
                             height: 100.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
+                              color: FinWalletTheme.of(context)
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(8.0),
                             ),
@@ -504,7 +504,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                 children: [
                                   Icon(
                                     Icons.swap_horiz_rounded,
-                                    color: FlutterFlowTheme.of(context)
+                                    color: FinWalletTheme.of(context)
                                         .primaryText,
                                     size: 40.0,
                                   ),
@@ -515,7 +515,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                       FFLocalizations.of(context).getText(
                                         '8bnd6lco' /* Transfer */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: FinWalletTheme.of(context)
                                           .bodyMedium,
                                     ),
                                   ),
@@ -527,7 +527,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                             width: MediaQuery.of(context).size.width * 0.40,
                             height: 100.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
+                              color: FinWalletTheme.of(context)
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(8.0),
                             ),
@@ -557,7 +557,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                   // ),
                                   Icon(
                                    FontAwesomeIcons.moneyBill1Wave,
-                                    color: FlutterFlowTheme.of(context)
+                                    color: FinWalletTheme.of(context)
                                         .primaryText,
                                     size: 40.0,
                                   ),
@@ -566,7 +566,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       'Add Money',
-                                      style: FlutterFlowTheme.of(context)
+                                      style: FinWalletTheme.of(context)
                                           .bodyMedium,
                                     ),
                                   ),
@@ -599,11 +599,11 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).tertiary,
+                      color: FinWalletTheme.of(context).tertiary,
                       textStyle:
-                          FlutterFlowTheme.of(context).displaySmall.override(
+                          FinWalletTheme.of(context).displaySmall.override(
                                 fontFamily: 'Lexend',
-                                color: FlutterFlowTheme.of(context).textColor,
+                                color: FinWalletTheme.of(context).textColor,
                               ),
                       elevation: 0.0,
                       borderSide: BorderSide(
@@ -620,7 +620,7 @@ class _CardDetailState extends State<CardDetail> with TickerProviderStateMixin {
               FFLocalizations.of(context).getText(
                 'knu0nxbp' /* Tap above to complete request */,
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
+              style: FinWalletTheme.of(context).bodyMedium.override(
                     fontFamily: 'Lexend',
                     color: Color(0x43000000),
                   ),

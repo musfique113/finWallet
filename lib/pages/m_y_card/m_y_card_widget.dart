@@ -1,14 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:mfsbd/index.dart';
 import 'package:mfsbd/pages/card_detail/card_detail.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
 import 'm_y_card_model.dart';
+
 export 'm_y_card_model.dart';
 
 class MYCardWidget extends StatefulWidget {
@@ -45,13 +46,13 @@ class _MYCardWidgetState extends State<MYCardWidget>
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: FinWalletTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
                 width: 40.0,
                 height: 40.0,
                 child: SpinKitPumpingHeart(
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: FinWalletTheme.of(context).primary,
                   size: 40.0,
                 ),
               ),
@@ -62,7 +63,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
 
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FinWalletTheme.of(context).primaryBackground,
 
           //Floating Action Button
           floatingActionButton: FloatingActionButton(
@@ -77,11 +78,11 @@ class _MYCardWidgetState extends State<MYCardWidget>
                 ),
               );
             },
-            backgroundColor: FlutterFlowTheme.of(context).tertiary,
+            backgroundColor: FinWalletTheme.of(context).tertiary,
             elevation: 8.0,
             child: Icon(
               Icons.swap_horiz_rounded,
-              color: FlutterFlowTheme.of(context).textColor,
+              color: FinWalletTheme.of(context).textColor,
               size: 36.0,
             ),
           ),
@@ -103,7 +104,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                           children: [
                             Card(
                               clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color: FlutterFlowTheme.of(context).tertiary,
+                              color: FinWalletTheme.of(context).tertiary,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(40.0),
                               ),
@@ -117,10 +118,13 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
-                                  child: Image.network(valueOrDefault<String>(
-                                    mYProfilePageUsersRecord.photoUrl,
-                                    'https://firebasestorage.googleapis.com/v0/b/mfsbd-25488.appspot.com/o/user_1177568.png?alt=media&token=2a1946f5-73cb-457c-957b-f68547ffafbd',
-                                  )),
+                                  child: Image.network(
+                                    valueOrDefault<String>(
+                                      mYProfilePageUsersRecord.photoUrl,
+                                      'https://firebasestorage.googleapis.com/v0/b/mfsbd-25488.appspot.com/o/user_1177568.png?alt=media&token=2a1946f5-73cb-457c-957b-f68547ffafbd',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
@@ -141,7 +145,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                     FFLocalizations.of(context).getText(
                                       '51kawpgz' /* Welcome, */,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
+                                    style: FinWalletTheme.of(context)
                                         .headlineSmall,
                                   ),
                                   Padding(
@@ -152,11 +156,11 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                         mYProfilePageUsersRecord.displayName,
                                         'User',
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: FinWalletTheme.of(context)
                                           .headlineSmall
                                           .override(
                                             fontFamily: 'Lexend',
-                                            color: FlutterFlowTheme.of(context)
+                                            color: FinWalletTheme.of(context)
                                                 .tertiary,
                                           ),
                                     ),
@@ -170,7 +174,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                   FFLocalizations.of(context).getText(
                                     '30kx6e5v' /* Your latest updates are below. */,
                                   ),
-                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                  style: FinWalletTheme.of(context).bodySmall,
                                 ),
                               ),
                             ],
@@ -228,7 +232,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                         width: 40.0,
                                         height: 40.0,
                                         child: SpinKitPumpingHeart(
-                                          color: FlutterFlowTheme.of(context)
+                                          color: FinWalletTheme.of(context)
                                               .primary,
                                           size: 40.0,
                                         ),
@@ -247,13 +251,13 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                           ),
                                           Text(
                                             'Your FinWallet May be suspended or deleted!',
-                                            style: FlutterFlowTheme.of(context)
+                                            style: FinWalletTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Lexend',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .textColor,
+                                                  color:
+                                                      FinWalletTheme.of(context)
+                                                          .textColor,
                                                 ),
                                           ),
                                         ],
@@ -281,25 +285,27 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                                   '6t7n9ugd' /* Balance */,
                                                 ),
                                                 style:
-                                                    FlutterFlowTheme.of(context)
+                                                    FinWalletTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Lexend',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .textColor,
+                                                          color:
+                                                              FinWalletTheme.of(
+                                                                      context)
+                                                                  .textColor,
                                                         ),
                                               ),
                                               Text(
                                                 '৳${data[0]['cardAmount']}',
                                                 style:
-                                                    FlutterFlowTheme.of(context)
+                                                    FinWalletTheme.of(context)
                                                         .displaySmall
                                                         .override(
                                                           fontFamily: 'Lexend',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .textColor,
+                                                          color:
+                                                              FinWalletTheme.of(
+                                                                      context)
+                                                                  .textColor,
                                                           fontSize: 32.0,
                                                         ),
                                               ),
@@ -310,28 +316,26 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                                 CrossAxisAlignment.end,
                                             children: [
                                               Text('Account Number',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Roboto Mono',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                  style:
+                                                      FinWalletTheme.of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto Mono',
+                                                            color: FinWalletTheme
+                                                                    .of(context)
                                                                 .textColor,
-                                                      )),
+                                                          )),
                                               Text(
                                                 data[0]['accountNumber'],
-                                                style: FlutterFlowTheme.of(
+                                                style: FinWalletTheme.of(
                                                         context)
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Roboto Mono',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .textColor,
+                                                      color: FinWalletTheme.of(
+                                                              context)
+                                                          .textColor,
                                                     ),
                                               ),
                                             ],
@@ -352,11 +356,11 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                   children: [
                                     Text(
                                       'Golden',
-                                      style: FlutterFlowTheme.of(context)
+                                      style: FinWalletTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Lexend',
-                                            color: FlutterFlowTheme.of(context)
+                                            color: FinWalletTheme.of(context)
                                                 .textColor,
                                           ),
                                     ),
@@ -372,12 +376,14 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Image.asset(
-                                      'assets/images/gold_chip.png', //Golden Chip
+                                      'assets/images/gold_chip.png',
+                                      //Golden Chip
                                       width: 60.0,
                                       fit: BoxFit.fitWidth,
                                     ),
                                     Image.asset(
-                                      'assets/images/finWallet_logo_landscape.png', //card logo
+                                      'assets/images/finWallet_logo_landscape.png',
+                                      //card logo
                                       width: 150.0,
                                       fit: BoxFit.fitWidth,
                                     ),
@@ -399,7 +405,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                   Container(
                     width: MediaQuery.of(context).size.width * 1.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      color: FinWalletTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(0.0),
                         bottomRight: Radius.circular(0.0),
@@ -420,7 +426,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                 FFLocalizations.of(context).getText(
                                   'yet7zk5d' /* Quick Service */,
                                 ),
-                                style: FlutterFlowTheme.of(context).bodySmall,
+                                style: FinWalletTheme.of(context).bodySmall,
                               ),
                             ],
                           ),
@@ -437,7 +443,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                 width: MediaQuery.of(context).size.width * 0.44,
                                 height: 100.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
+                                  color: FinWalletTheme.of(context)
                                       .primaryBackground,
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
@@ -464,7 +470,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                     children: [
                                       Icon(
                                         Icons.swap_horiz_rounded,
-                                        color: FlutterFlowTheme.of(context)
+                                        color: FinWalletTheme.of(context)
                                             .primaryText,
                                         size: 40.0,
                                       ),
@@ -475,7 +481,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                           FFLocalizations.of(context).getText(
                                             '8bnd6lco' /* Transfer */,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
+                                          style: FinWalletTheme.of(context)
                                               .bodyMedium,
                                         ),
                                       ),
@@ -489,7 +495,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                 width: MediaQuery.of(context).size.width * 0.44,
                                 height: 100.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
+                                  color: FinWalletTheme.of(context)
                                       .primaryBackground,
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
@@ -516,7 +522,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                     children: [
                                       Icon(
                                         Icons.add_rounded,
-                                        color: FlutterFlowTheme.of(context)
+                                        color: FinWalletTheme.of(context)
                                             .primaryText,
                                         size: 40.0,
                                       ),
@@ -527,7 +533,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                           FFLocalizations.of(context).getText(
                                             'roobc02h' /*Add Card Button*/,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
+                                          style: FinWalletTheme.of(context)
                                               .bodyMedium,
                                         ),
                                       ),
@@ -550,7 +556,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                 FFLocalizations.of(context).getText(
                                   '27pb7ji4' /* Other Cards */,
                                 ),
-                                style: FlutterFlowTheme.of(context).bodySmall,
+                                style: FinWalletTheme.of(context).bodySmall,
                               ),
                             ],
                           ),
@@ -592,7 +598,7 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                           width: 40.0,
                                           height: 40.0,
                                           child: SpinKitPumpingHeart(
-                                            color: FlutterFlowTheme.of(context)
+                                            color: FinWalletTheme.of(context)
                                                 .primary,
                                             size: 40.0,
                                           ),
@@ -688,11 +694,15 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                                                   .spaceBetween,
                                                           children: [
                                                             Image.asset(
-                                                              data[index]['cardType'] =='Bkash'
+                                                              data[index]['cardType'] ==
+                                                                      'Bkash'
                                                                   ? 'assets/images/bkash_full.png'
-                                                                  : data[index]['cardType'] =='Nagad'
+                                                                  : data[index][
+                                                                              'cardType'] ==
+                                                                          'Nagad'
                                                                       ? 'assets/images/nagad_full.png'
-                                                                      : data[index]['cardType'] == 'Upay'
+                                                                      : data[index]['cardType'] ==
+                                                                              'Upay'
                                                                           ? 'assets/images/upay_full.png'
                                                                           : data[index]['cardType'] == 'Rocket'
                                                                               ? 'assets/images/rocket_full.jpg'
@@ -704,20 +714,22 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                                                                           ? 'assets/images/mcash.png'
                                                                                           : data[index]['cardType'] == 'Ok Wallet'
                                                                                               ? 'assets/images/okwallet.png'
-                                                                                              : 'assets/images/telecash.jpg', //card logo
+                                                                                              : 'assets/images/telecash.jpg',
+                                                              //card logo
                                                               width: 80.0,
                                                               height: 40,
-                                                              fit: BoxFit.contain,
+                                                              fit: BoxFit
+                                                                  .contain,
                                                             ),
                                                             Text(
                                                               '৳ ${data[index]['cardAmount']}',
-                                                              style: FlutterFlowTheme
+                                                              style: FinWalletTheme
                                                                       .of(context)
                                                                   .displaySmall
                                                                   .override(
                                                                     fontFamily:
                                                                         'Lexend',
-                                                                    color: FlutterFlowTheme.of(
+                                                                    color: FinWalletTheme.of(
                                                                             context)
                                                                         .textColor,
                                                                     fontSize:
@@ -744,26 +756,26 @@ class _MYCardWidgetState extends State<MYCardWidget>
                                                           children: [
                                                             Text(
                                                               'AC-${data[index]['accountNumber']}',
-                                                              style: FlutterFlowTheme
+                                                              style: FinWalletTheme
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Roboto Mono',
-                                                                    color: FlutterFlowTheme.of(
+                                                                    color: FinWalletTheme.of(
                                                                             context)
                                                                         .textColor,
                                                                   ),
                                                             ),
                                                             Text(
                                                               'Card-${index + 1}',
-                                                              style: FlutterFlowTheme
+                                                              style: FinWalletTheme
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Roboto Mono',
-                                                                    color: FlutterFlowTheme.of(
+                                                                    color: FinWalletTheme.of(
                                                                             context)
                                                                         .textColor,
                                                                   ),

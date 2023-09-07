@@ -4,8 +4,8 @@
 // import 'package:flutter/material.dart';
 // // import 'package:flutter/scheduler.dart';
 
-// class FlutterFlowDropDown<T> extends StatefulWidget {
-//   const FlutterFlowDropDown({
+// class FinWalletDropDown<T> extends StatefulWidget {
+//   const FinWalletDropDown({
 //     required this.controller,
 //     this.hintText,
 //     this.searchHintText,
@@ -50,10 +50,10 @@
 //   final bool isSearchable;
 
 //   @override
-//   State<FlutterFlowDropDown<T>> createState() => _FlutterFlowDropDownState<T>();
+//   State<FinWalletDropDown<T>> createState() => _FinWalletDropDownState<T>();
 // }
 
-// class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
+// class _FinWalletDropDownState<T> extends State<FinWalletDropDown<T>> {
 //   final TextEditingController _textEditingController = TextEditingController();
 
 //   void Function() get listener =>

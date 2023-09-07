@@ -9,9 +9,9 @@ import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
 import 'backend/firebase/firebase_config.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
-// import 'flutter_flow/flutter_flow_util.dart';
-import 'flutter_flow/internationalization.dart';
+import 'fin_wallet/fin_wallet_theme.dart';
+// import 'fin_wallet/fin_wallet_util.dart';
+import 'fin_wallet/internationalization.dart';
 // import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -22,7 +22,7 @@ void main() async {
 
   await initFirebase();
 
-  await FlutterFlowTheme.initialize();
+  await FinWalletTheme.initialize();
 
   runApp(MyApp());
 }
@@ -38,7 +38,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  ThemeMode _themeMode = FinWalletTheme.themeMode;
 
   late Stream<BaseAuthUser> userStream;
   BaseAuthUser? initialUser;
@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
 
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
+        FinWalletTheme.saveThemeMode(mode);
       });
 
   @override
@@ -171,9 +171,9 @@ class _NavBarPageState extends State<NavBarPage>  {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: FlutterFlowTheme.of(context).darkBackground,
-          selectedItemColor: FlutterFlowTheme.of(context).primary,
-          unselectedItemColor: FlutterFlowTheme.of(context).grayLight,
+          backgroundColor: FinWalletTheme.of(context).darkBackground,
+          selectedItemColor: FinWalletTheme.of(context).primary,
+          unselectedItemColor: FinWalletTheme.of(context).grayLight,
           showSelectedLabels: true,
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,

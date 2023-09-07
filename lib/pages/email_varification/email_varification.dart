@@ -3,9 +3,9 @@ import 'package:mfsbd/index.dart';
 // import 'package:mfsbd/pages/complete_profile/complete_profile_widget.dart';
 
 // import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 import 'package:flutter/material.dart';
 import 'email_varification_model.dart';
 export 'email_varification_model.dart';
@@ -89,13 +89,13 @@ class _EmailVarificationWidgetState extends State<EmailVarificationWidget> {
       onWillPop: onWillPop,
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FinWalletTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FinWalletTheme.of(context).primaryBackground,
           automaticallyImplyLeading: true,
           title: Text(
             'Varify Email',
-            style: FlutterFlowTheme.of(context).headlineSmall,
+            style: FinWalletTheme.of(context).headlineSmall,
           ),
           actions: [],
           centerTitle: false,
@@ -129,7 +129,7 @@ class _EmailVarificationWidgetState extends State<EmailVarificationWidget> {
                       child: Text(
                         'We have sent you an email with varification link. Please varify your account then press continue.',
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodySmall,
+                        style: FinWalletTheme.of(context).bodySmall,
                       ),
                     ),
                   ],
@@ -144,11 +144,11 @@ class _EmailVarificationWidgetState extends State<EmailVarificationWidget> {
               //       labelText: FFLocalizations.of(context).getText(
               //         'u4nuk910' /* Email Address */,
               //       ),
-              //       labelStyle: FlutterFlowTheme.of(context).bodySmall,
+              //       labelStyle: FinWalletTheme.of(context).bodySmall,
               //       hintText: FFLocalizations.of(context).getText(
               //         '37kotxi0' /* Enter your email... */,
               //       ),
-              //       hintStyle: FlutterFlowTheme.of(context).bodySmall,
+              //       hintStyle: FinWalletTheme.of(context).bodySmall,
               //       enabledBorder: OutlineInputBorder(
               //         borderSide: BorderSide(
               //           color: Color(0x00000000),
@@ -178,11 +178,11 @@ class _EmailVarificationWidgetState extends State<EmailVarificationWidget> {
               //         borderRadius: BorderRadius.circular(8.0),
               //       ),
               //       filled: true,
-              //       fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+              //       fillColor: FinWalletTheme.of(context).secondaryBackground,
               //       contentPadding:
               //           EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
               //     ),
-              //     style: FlutterFlowTheme.of(context).bodyMedium,
+              //     style: FinWalletTheme.of(context).bodyMedium,
               //     validator:
               //         _model.emailAddressControllerValidator.asValidator(context),
               //   ),
@@ -214,10 +214,10 @@ class _EmailVarificationWidgetState extends State<EmailVarificationWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                    color: FinWalletTheme.of(context).primary,
+                    textStyle: FinWalletTheme.of(context).titleSmall.override(
                           fontFamily: 'Lexend',
-                          color: FlutterFlowTheme.of(context).textColor,
+                          color: FinWalletTheme.of(context).textColor,
                         ),
                     elevation: 3.0,
                     borderSide: BorderSide(

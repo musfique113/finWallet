@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_util.dart';
+import '/fin_wallet/fin_wallet_util.dart';
 import 'package:flutter/material.dart';
 
-class CompleteProfileModel extends FlutterFlowModel {
+class CompleteProfileModel extends FinWalletModel {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();

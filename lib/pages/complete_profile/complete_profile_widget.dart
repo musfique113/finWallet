@@ -1,10 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
+import '/fin_wallet/upload_data.dart';
 import '/pages/onboarding/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -46,15 +46,15 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FinWalletTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FinWalletTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
           FFLocalizations.of(context).getText(
             'yhcaf7r2' /* Complete Profile */,
           ),
-          style: FlutterFlowTheme.of(context).headlineSmall,
+          style: FinWalletTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -91,8 +91,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                         context: context,
                         allowPhoto: true,
                         backgroundColor:
-                            FlutterFlowTheme.of(context).darkBackground,
-                        textColor: FlutterFlowTheme.of(context).textColor,
+                            FinWalletTheme.of(context).darkBackground,
+                        textColor: FinWalletTheme.of(context).textColor,
                         pickerFontFamily: 'Lexend Deca',
                       );
                       if (selectedMedia != null &&
@@ -156,8 +156,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                       child: Image.network(
                         valueOrDefault<String>(
                           _model.uploadedFileUrl,
-                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/finance-app-sample-kugwu4/assets/ijvuhvqbvns6/uiAvatar@2x.png',
-                        ),
+                          'https://storage.googleapis.com/FinWallet-io-6f20.appspot.com/projects/finance-app-sample-kugwu4/assets/ijvuhvqbvns6/uiAvatar@2x.png',
+                        ),fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -166,7 +166,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                   FFLocalizations.of(context).getText(
                     'r6npjsue' /* Upload a photo for us to easil... */,
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FinWalletTheme.of(context).bodyMedium,
                 ),
                 Padding(
                   padding:
@@ -178,8 +178,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                       labelText: FFLocalizations.of(context).getText(
                         'sdptn7dd' /* Your Name */,
                       ),
-                      labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                      hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                      labelStyle: FinWalletTheme.of(context).bodySmall,
+                      hintStyle: FinWalletTheme.of(context).bodySmall,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0x00000000),
@@ -210,11 +210,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                       ),
                       filled: true,
                       fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
+                          FinWalletTheme.of(context).secondaryBackground,
                       contentPadding: EdgeInsetsDirectional.fromSTEB(
                           20.0, 24.0, 20.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FinWalletTheme.of(context).bodyMedium,
                     validator:
                         _model.yourNameControllerValidator.asValidator(context),
                   ),
@@ -229,11 +229,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                       labelText: FFLocalizations.of(context).getText(
                         'n636qnrx' /* Your Age */,
                       ),
-                      labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                      labelStyle: FinWalletTheme.of(context).bodySmall,
                       hintText: FFLocalizations.of(context).getText(
                         's7yvjzbs' /* i.e. 34 */,
                       ),
-                      hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                      hintStyle: FinWalletTheme.of(context).bodySmall,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0x00000000),
@@ -264,11 +264,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                       ),
                       filled: true,
                       fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
+                          FinWalletTheme.of(context).secondaryBackground,
                       contentPadding: EdgeInsetsDirectional.fromSTEB(
                           20.0, 24.0, 20.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FinWalletTheme.of(context).bodyMedium,
                     keyboardType: TextInputType.number,
                     validator:
                         _model.yourAgeControllerValidator.asValidator(context),
@@ -284,11 +284,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                       labelText: FFLocalizations.of(context).getText(
                         '72ii0waq' /* Your Title */,
                       ),
-                      labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                      labelStyle: FinWalletTheme.of(context).bodySmall,
                       hintText: FFLocalizations.of(context).getText(
                         'pf8glhkg' /* What is your position? */,
                       ),
-                      hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                      hintStyle: FinWalletTheme.of(context).bodySmall,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0x00000000),
@@ -319,11 +319,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                       ),
                       filled: true,
                       fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
+                          FinWalletTheme.of(context).secondaryBackground,
                       contentPadding: EdgeInsetsDirectional.fromSTEB(
                           20.0, 24.0, 20.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FinWalletTheme.of(context).bodyMedium,
                     validator: _model.yourTitleControllerValidator
                         .asValidator(context),
                   ),
@@ -340,7 +340,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                             width: 40.0,
                             height: 40.0,
                             child: SpinKitPumpingHeart(
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: FinWalletTheme.of(context).primary,
                               size: 40.0,
                             ),
                           ),
@@ -374,12 +374,12 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle: FlutterFlowTheme.of(context)
+                          color: FinWalletTheme.of(context).primary,
+                          textStyle: FinWalletTheme.of(context)
                               .titleSmall
                               .override(
                                 fontFamily: 'Lexend',
-                                color: FlutterFlowTheme.of(context).textColor,
+                                color: FinWalletTheme.of(context).textColor,
                               ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -404,7 +404,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                             width: 40.0,
                             height: 40.0,
                             child: SpinKitPumpingHeart(
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: FinWalletTheme.of(context).primary,
                               size: 40.0,
                             ),
                           ),
@@ -430,12 +430,12 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          textStyle: FlutterFlowTheme.of(context)
+                              FinWalletTheme.of(context).secondaryBackground,
+                          textStyle: FinWalletTheme.of(context)
                               .titleSmall
                               .override(
                                 fontFamily: 'Lexend',
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: FinWalletTheme.of(context).primaryText,
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(

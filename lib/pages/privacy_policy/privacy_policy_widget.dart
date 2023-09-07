@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'privacy_policy_model.dart';
@@ -36,9 +36,9 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FinWalletTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FinWalletTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         leading: InkWell(
           splashColor: Colors.transparent,
@@ -50,7 +50,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
           },
           child: Icon(
             Icons.chevron_left_rounded,
-            color: FlutterFlowTheme.of(context).grayLight,
+            color: FinWalletTheme.of(context).grayLight,
             size: 32.0,
           ),
         ),
@@ -58,7 +58,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
           FFLocalizations.of(context).getText(
             'alczfiiy' /* Privacy Policy */,
           ),
-          style: FlutterFlowTheme.of(context).headlineSmall,
+          style: FinWalletTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -74,7 +74,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                 width: 40.0,
                 height: 40.0,
                 child: SpinKitPumpingHeart(
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: FinWalletTheme.of(context).primary,
                   size: 40.0,
                 ),
               ),
@@ -94,7 +94,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                           FFLocalizations.of(context).getText(
                             'fvsfg5on' /* How we use your data */,
                           ),
-                          style: FlutterFlowTheme.of(context).displaySmall,
+                          style: FinWalletTheme.of(context).displaySmall,
                         ),
                       ),
                     ],
@@ -111,7 +111,7 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                           FFLocalizations.of(context).getText(
                             'nbiyrnzl' /* Lorem ipsum dolor sit amet, co... */,
                           ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FinWalletTheme.of(context).bodySmall,
                         ),
                       ),
                     ],

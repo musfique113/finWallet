@@ -5,9 +5,9 @@ import 'package:mfsbd/backend/schema/create_card_recprd.dart';
 import 'package:mfsbd/pages/email_varification/email_varification.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 // import '/main.dart';
 // import '/pages/complete_profile/complete_profile_widget.dart';
 import '/pages/login_page/login_page_widget.dart';
@@ -48,7 +48,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FinWalletTheme.of(context).primaryBackground,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -114,7 +114,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                       FFLocalizations.of(context).getText(
                                         'gpokmd81' /* Get Started */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: FinWalletTheme.of(context)
                                           .displaySmall,
                                     ),
                                   ],
@@ -129,7 +129,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                         FFLocalizations.of(context).getText(
                                           'oitrrwgg' /* Create your account below. */,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
+                                        style: FinWalletTheme.of(context)
                                             .titleMedium,
                                       ),
                                     ],
@@ -146,13 +146,13 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                           FFLocalizations.of(context).getText(
                                         'gcwdqm4g' /* Email Address */,
                                       ),
-                                      labelStyle: FlutterFlowTheme.of(context)
+                                      labelStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       hintText:
                                           FFLocalizations.of(context).getText(
                                         'iam0xgwx' /* Enter your email... */,
                                       ),
-                                      hintStyle: FlutterFlowTheme.of(context)
+                                      hintStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -187,14 +187,14 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
+                                      fillColor: FinWalletTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 20.0, 24.0),
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                     validator: _model
                                         .emailAddressControllerValidator
                                         .asValidator(context),
@@ -213,11 +213,11 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                       counterText: '',
                                       labelText:
                                          'Pin',
-                                      labelStyle: FlutterFlowTheme.of(context)
+                                      labelStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       hintText:
                                           'Enter Your Six Digit Pin',
-                                      hintStyle: FlutterFlowTheme.of(context)
+                                      hintStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -252,7 +252,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
+                                      fillColor: FinWalletTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
@@ -269,14 +269,14 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                           _model.passwordCreateVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: FlutterFlowTheme.of(context)
+                                          color: FinWalletTheme.of(context)
                                               .secondaryText,
                                           size: 20.0,
                                         ),
                                       ),
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                     validator: _model
                                         .passwordCreateControllerValidator
                                         .asValidator(context),
@@ -296,11 +296,11 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                       counterText: '',
                                       labelText:
                                           'Confirm Pin',
-                                      labelStyle: FlutterFlowTheme.of(context)
+                                      labelStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       hintText:
                                           'Enter Your Six Digit Pin',
-                                      hintStyle: FlutterFlowTheme.of(context)
+                                      hintStyle: FinWalletTheme.of(context)
                                           .bodySmall,
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -335,7 +335,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
+                                      fillColor: FinWalletTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
@@ -352,14 +352,14 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                           _model.passwordConfirmVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: FlutterFlowTheme.of(context)
+                                          color: FinWalletTheme.of(context)
                                               .secondaryText,
                                           size: 20.0,
                                         ),
                                       ),
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                     validator: _model
                                         .passwordConfirmControllerValidator
                                         .asValidator(context),
@@ -444,8 +444,8 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
+                                          FinWalletTheme.of(context).primary,
+                                      textStyle: FinWalletTheme.of(context)
                                           .titleSmall,
                                       elevation: 3.0,
                                       borderSide: BorderSide(
@@ -465,7 +465,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                           0.8,
                                       height: 44.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
+                                        color: FinWalletTheme.of(context)
                                             .secondaryBackground,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
@@ -497,7 +497,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                             Icon(
                                               Icons.arrow_back_rounded,
                                               color:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .primary,
                                               size: 24.0,
                                             ),
@@ -511,11 +511,11 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                                   '3twynvfz' /* Login */,
                                                 ),
                                                 style:
-                                                    FlutterFlowTheme.of(context)
+                                                    FinWalletTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Lexend',
-                                                          color: FlutterFlowTheme
+                                                          color: FinWalletTheme
                                                                   .of(context)
                                                               .primary,
                                                         ),
@@ -527,7 +527,7 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                                                 '9ssznj0g' /* Already have an account? */,
                                               ),
                                               style:
-                                                  FlutterFlowTheme.of(context)
+                                                  FinWalletTheme.of(context)
                                                       .bodyMedium,
                                             ),
                                           ],
@@ -540,52 +540,52 @@ class _RegisterAccountWidgetState extends State<RegisterAccountWidget> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 24.0, 0.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              final user =
-                                  await authManager.signInAnonymously(context);
-                              if (user == null) {
-                                return;
-                              }
-                              await Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => EmailVarificationWidget(),
-                                      // NavBarPage(initialPage: 'MY_Card'),
-                                ),
-                                (r) => false,
-                              );
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              '3ugmx2zp' /* Continue as Guest */,
-                            ),
-                            options: FFButtonOptions(
-                              width: 230.0,
-                              height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).background,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Lexend',
-                                    color:
-                                        FlutterFlowTheme.of(context).textColor,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: EdgeInsetsDirectional.fromSTEB(
+                        //       0.0, 24.0, 0.0, 0.0),
+                        //   child: FFButtonWidget(
+                        //     onPressed: () async {
+                        //       final user =
+                        //           await authManager.signInAnonymously(context);
+                        //       if (user == null) {
+                        //         return;
+                        //       }
+                        //       await Navigator.pushAndRemoveUntil(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //           builder: (context) => EmailVarificationWidget(),
+                        //               // NavBarPage(initialPage: 'MY_Card'),
+                        //         ),
+                        //         (r) => false,
+                        //       );
+                        //     },
+                        //     text: FFLocalizations.of(context).getText(
+                        //       '3ugmx2zp' /* Continue as Guest */,
+                        //     ),
+                        //     options: FFButtonOptions(
+                        //       width: 230.0,
+                        //       height: 50.0,
+                        //       padding: EdgeInsetsDirectional.fromSTEB(
+                        //           0.0, 0.0, 0.0, 0.0),
+                        //       iconPadding: EdgeInsetsDirectional.fromSTEB(
+                        //           0.0, 0.0, 0.0, 0.0),
+                        //       color: FinWalletTheme.of(context).background,
+                        //       textStyle: FinWalletTheme.of(context)
+                        //           .titleSmall
+                        //           .override(
+                        //             fontFamily: 'Lexend',
+                        //             color:
+                        //                 FinWalletTheme.of(context).textColor,
+                        //           ),
+                        //       elevation: 3.0,
+                        //       borderSide: BorderSide(
+                        //         color: Colors.transparent,
+                        //         width: 1.0,
+                        //       ),
+                        //       borderRadius: BorderRadius.circular(30.0),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),

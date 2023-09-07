@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 import 'package:flutter/material.dart';
 import 'forgot_password_model.dart';
 export 'forgot_password_model.dart';
@@ -37,9 +37,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FinWalletTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FinWalletTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         leading: InkWell(
           splashColor: Colors.transparent,
@@ -51,7 +51,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
           },
           child: Icon(
             Icons.chevron_left_rounded,
-            color: FlutterFlowTheme.of(context).grayLight,
+            color: FinWalletTheme.of(context).grayLight,
             size: 32.0,
           ),
         ),
@@ -59,7 +59,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
           FFLocalizations.of(context).getText(
             'g416xg9f' /* Forgot Password */,
           ),
-          style: FlutterFlowTheme.of(context).headlineSmall,
+          style: FinWalletTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -89,7 +89,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                       FFLocalizations.of(context).getText(
                         'xaiad71o' /* Enter the email associated wit... */,
                       ),
-                      style: FlutterFlowTheme.of(context).bodySmall,
+                      style: FinWalletTheme.of(context).bodySmall,
                     ),
                   ),
                 ],
@@ -104,11 +104,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   labelText: FFLocalizations.of(context).getText(
                     'u4nuk910' /* Email Address */,
                   ),
-                  labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                  labelStyle: FinWalletTheme.of(context).bodySmall,
                   hintText: FFLocalizations.of(context).getText(
                     '37kotxi0' /* Enter your email... */,
                   ),
-                  hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                  hintStyle: FinWalletTheme.of(context).bodySmall,
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
@@ -138,11 +138,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   filled: true,
-                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  fillColor: FinWalletTheme.of(context).secondaryBackground,
                   contentPadding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                 ),
-                style: FlutterFlowTheme.of(context).bodyMedium,
+                style: FinWalletTheme.of(context).bodyMedium,
                 validator: _model.emailAddressControllerValidator
                     .asValidator(context),
               ),
@@ -175,10 +175,10 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primary,
-                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                  color: FinWalletTheme.of(context).primary,
+                  textStyle: FinWalletTheme.of(context).titleSmall.override(
                         fontFamily: 'Lexend',
-                        color: FlutterFlowTheme.of(context).textColor,
+                        color: FinWalletTheme.of(context).textColor,
                       ),
                   elevation: 3.0,
                   borderSide: BorderSide(

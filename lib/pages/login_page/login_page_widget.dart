@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/fin_wallet/fin_wallet_theme.dart';
+import '/fin_wallet/fin_wallet_util.dart';
+import '/fin_wallet/fin_wallet_widgets.dart';
 import '/main.dart';
 import '/pages/forgot_password/forgot_password_widget.dart';
 import '/pages/register_account/register_account_widget.dart';
@@ -41,7 +41,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FinWalletTheme.of(context).primaryBackground,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -104,7 +104,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       FFLocalizations.of(context).getText(
                                         'o07j3mgv' /* Welcome back */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: FinWalletTheme.of(context)
                                           .displaySmall,
                                     ),
                                   ],
@@ -119,7 +119,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         FFLocalizations.of(context).getText(
                                           'fzxvw3mu' /* Login to access your account b... */,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
+                                        style: FinWalletTheme.of(context)
                                             .titleMedium,
                                       ),
                                     ],
@@ -138,13 +138,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         'a9j78va9' /* Email Address */,
                                       ),
                                       labelStyle:
-                                          FlutterFlowTheme.of(context).bodySmall,
+                                          FinWalletTheme.of(context).bodySmall,
                                       hintText:
                                           FFLocalizations.of(context).getText(
                                         'i7f18cve' /* Enter your email... */,
                                       ),
                                       hintStyle:
-                                          FlutterFlowTheme.of(context).bodySmall,
+                                          FinWalletTheme.of(context).bodySmall,
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
@@ -174,14 +174,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         borderRadius: BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
+                                      fillColor: FinWalletTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 20.0, 24.0),
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                     validator: _model
                                         .emailAddressLoginControllerValidator
                                         .asValidator(context),
@@ -200,11 +200,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       labelText:
                                           'Pin',
                                       labelStyle:
-                                          FlutterFlowTheme.of(context).bodySmall,
+                                          FinWalletTheme.of(context).bodySmall,
                                       hintText:
                                          'Enter Your Six Digit Pin',
                                       hintStyle:
-                                          FlutterFlowTheme.of(context).bodySmall,
+                                          FinWalletTheme.of(context).bodySmall,
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
@@ -234,7 +234,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         borderRadius: BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
+                                      fillColor: FinWalletTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
@@ -255,7 +255,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       ),
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                        FinWalletTheme.of(context).bodyMedium,
                                     validator: _model
                                         .passwordLoginControllerValidator
                                         .asValidator(context),
@@ -291,7 +291,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: Color(0x001A1F24),
-                                          textStyle: FlutterFlowTheme.of(context)
+                                          textStyle: FinWalletTheme.of(context)
                                               .bodySmall,
                                           elevation: 0.0,
                                           borderSide: BorderSide(
@@ -336,8 +336,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color:
-                                            FlutterFlowTheme.of(context).primary,
-                                        textStyle: FlutterFlowTheme.of(context)
+                                            FinWalletTheme.of(context).primary,
+                                        textStyle: FinWalletTheme.of(context)
                                             .titleSmall,
                                         elevation: 3.0,
                                         borderSide: BorderSide(
@@ -372,7 +372,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             0.8,
                                         height: 44.0,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
+                                          color: FinWalletTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
                                               BorderRadius.circular(8.0),
@@ -386,7 +386,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               FFLocalizations.of(context).getText(
                                                 'cjqb8ial' /* Don't have an account? */,
                                               ),
-                                              style: FlutterFlowTheme.of(context)
+                                              style: FinWalletTheme.of(context)
                                                   .bodyMedium,
                                             ),
                                             Padding(
@@ -399,12 +399,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   'a0iimirx' /* Create */,
                                                 ),
                                                 style:
-                                                    FlutterFlowTheme.of(context)
+                                                    FinWalletTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Lexend',
                                                           color:
-                                                              FlutterFlowTheme.of(
+                                                              FinWalletTheme.of(
                                                                       context)
                                                                   .primary,
                                                         ),
@@ -412,7 +412,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             ),
                                             Icon(
                                               Icons.arrow_forward_rounded,
-                                              color: FlutterFlowTheme.of(context)
+                                              color: FinWalletTheme.of(context)
                                                   .primary,
                                               size: 24.0,
                                             ),
@@ -426,61 +426,62 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              final user =
-                                  await authManager.signInAnonymously(context);
-                              if (user == null) {
-                                return;
-                              }
-      
-                              // final budgetListCreateData =
-                              //     createBudgetListRecordData(
-                              //   budgetUser: currentUserReference,
-                              // );
-                              // await BudgetListRecord.collection
-                              //     .doc()
-                              //     .set(budgetListCreateData);
-                              await Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      NavBarPage(initialPage: 'MY_Card'),
-                                ),
-                                (r) => false,
-                              );
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              '1zqiw31h' /* Continue as Guest */,
-                            ),
-                            options: FFButtonOptions(
-                              width: 230.0,
-                              height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Lexend',
-                                    color:
-                                        FlutterFlowTheme.of(context).primaryText,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                          ),
-                        ),
+
+                        // Padding(
+                        //   padding:
+                        //       EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                        //   child: FFButtonWidget(
+                        //     onPressed: () async {
+                        //       final user =
+                        //           await authManager.signInAnonymously(context);
+                        //       if (user == null) {
+                        //         return;
+                        //       }
+                        //
+                        //       // final budgetListCreateData =
+                        //       //     createBudgetListRecordData(
+                        //       //   budgetUser: currentUserReference,
+                        //       // );
+                        //       // await BudgetListRecord.collection
+                        //       //     .doc()
+                        //       //     .set(budgetListCreateData);
+                        //       await Navigator.pushAndRemoveUntil(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //           builder: (context) =>
+                        //               NavBarPage(initialPage: 'MY_Card'),
+                        //         ),
+                        //         (r) => false,
+                        //       );
+                        //     },
+                        //     text: FFLocalizations.of(context).getText(
+                        //       '1zqiw31h' /* Continue as Guest */,
+                        //     ),
+                        //     options: FFButtonOptions(
+                        //       width: 230.0,
+                        //       height: 50.0,
+                        //       padding: EdgeInsetsDirectional.fromSTEB(
+                        //           0.0, 0.0, 0.0, 0.0),
+                        //       iconPadding: EdgeInsetsDirectional.fromSTEB(
+                        //           0.0, 0.0, 0.0, 0.0),
+                        //       color: FinWalletTheme.of(context)
+                        //           .secondaryBackground,
+                        //       textStyle: FinWalletTheme.of(context)
+                        //           .titleSmall
+                        //           .override(
+                        //             fontFamily: 'Lexend',
+                        //             color:
+                        //                 FinWalletTheme.of(context).primaryText,
+                        //           ),
+                        //       elevation: 3.0,
+                        //       borderSide: BorderSide(
+                        //         color: Colors.transparent,
+                        //         width: 1.0,
+                        //       ),
+                        //       borderRadius: BorderRadius.circular(30.0),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),

@@ -7,8 +7,8 @@
 // export 'package:fl_chart/fl_chart.dart'
 //     show BarAreaData, FlDotData, LineChartBarData, BarChartAlignment;
 
-// class FlutterFlowLineChart extends StatelessWidget {
-//   const FlutterFlowLineChart({
+// class FinWalletLineChart extends StatelessWidget {
+//   const FinWalletLineChart({
 //     Key? key,
 //     required this.data,
 //     required this.xAxisLabelInfo,
@@ -57,8 +57,8 @@
 //       );
 // }
 
-// class FlutterFlowBarChart extends StatelessWidget {
-//   const FlutterFlowBarChart({
+// class FinWalletBarChart extends StatelessWidget {
+//   const FinWalletBarChart({
 //     Key? key,
 //     required this.barData,
 //     required this.xLabels,
@@ -189,8 +189,8 @@
 //   percent,
 // }
 
-// class FlutterFlowPieChart extends StatelessWidget {
-//   const FlutterFlowPieChart({
+// class FinWalletPieChart extends StatelessWidget {
+//   const FinWalletPieChart({
 //     Key? key,
 //     required this.data,
 //     this.donutHoleRadius = 0,
@@ -259,8 +259,8 @@
 //       );
 // }
 
-// class FlutterFlowChartLegendWidget extends StatelessWidget {
-//   const FlutterFlowChartLegendWidget({
+// class FinWalletChartLegendWidget extends StatelessWidget {
+//   const FinWalletChartLegendWidget({
 //     Key? key,
 //     required this.entries,
 //     this.width,
