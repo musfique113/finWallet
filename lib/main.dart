@@ -83,7 +83,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'mfsbd',
+      title: 'finWallet',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

@@ -25,7 +25,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LoginPageModel());
-
     _model.emailAddressLoginController ??= TextEditingController();
     _model.passwordLoginController ??= TextEditingController();
   }
@@ -130,21 +129,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       0.0, 20.0, 0.0, 0.0),
                                   child: TextFormField(
                                     controller:
-                                        _model.emailAddressLoginController,
+                                    _model.emailAddressLoginController,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText:
-                                          FFLocalizations.of(context).getText(
+                                      FFLocalizations.of(context).getText(
                                         'a9j78va9' /* Email Address */,
                                       ),
                                       labelStyle:
-                                          FinWalletTheme.of(context).bodySmall,
+                                      FinWalletTheme.of(context).bodySmall,
                                       hintText:
-                                          FFLocalizations.of(context).getText(
+                                      FFLocalizations.of(context).getText(
                                         'i7f18cve' /* Enter your email... */,
                                       ),
                                       hintStyle:
-                                          FinWalletTheme.of(context).bodySmall,
+                                      FinWalletTheme.of(context).bodySmall,
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
@@ -177,11 +176,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       fillColor: FinWalletTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 24.0, 20.0, 24.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 24.0, 20.0, 24.0),
                                     ),
                                     style:
-                                        FinWalletTheme.of(context).bodyMedium,
+                                    FinWalletTheme.of(context).bodyMedium,
                                     validator: _model
                                         .emailAddressLoginControllerValidator
                                         .asValidator(context),
@@ -197,13 +196,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     decoration: InputDecoration(
                                       counterText: '',
                                       labelText:
-                                          'Password',
+                                      'Password',
                                       labelStyle:
-                                          FinWalletTheme.of(context).bodySmall,
+                                      FinWalletTheme.of(context).bodySmall,
                                       hintText:
-                                         'Enter Your Password',
+                                      'Enter Your Password',
                                       hintStyle:
-                                          FinWalletTheme.of(context).bodySmall,
+                                      FinWalletTheme.of(context).bodySmall,
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
@@ -236,12 +235,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       fillColor: FinWalletTheme.of(context)
                                           .secondaryBackground,
                                       contentPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 24.0, 20.0, 24.0),
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 24.0, 20.0, 24.0),
                                       suffixIcon: InkWell(
                                         onTap: () => setState(
-                                          () => _model.passwordLoginVisibility =
-                                              !_model.passwordLoginVisibility,
+                                              () => _model.passwordLoginVisibility =
+                                          !_model.passwordLoginVisibility,
                                         ),
                                         focusNode: FocusNode(skipTraversal: true),
                                         child: Icon(
@@ -254,7 +253,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       ),
                                     ),
                                     style:
-                                        FinWalletTheme.of(context).bodyMedium,
+                                    FinWalletTheme.of(context).bodyMedium,
                                     validator: _model
                                         .passwordLoginControllerValidator
                                         .asValidator(context),
@@ -263,7 +262,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -287,8 +286,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           padding: EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
                                           color: Color(0x001A1F24),
                                           textStyle: FinWalletTheme.of(context)
                                               .bodySmall,
@@ -298,14 +297,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                          BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
                                         final user =
-                                            await authManager.signInWithEmail(
+                                        await authManager.signInWithEmail(
                                           context,
                                           _model.emailAddressLoginController.text,
                                           _model.passwordLoginController.text,
@@ -313,14 +312,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         if (user == null) {
                                           return;
                                         }
-      
+
                                         await Navigator.pushAndRemoveUntil(
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) => NavBarPage(
                                                 initialPage: 'MY_Card'),
                                           ),
-                                          (r) => false,
+                                              (r) => false,
                                         );
                                       },
                                       text: FFLocalizations.of(context).getText(
@@ -332,10 +331,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
                                         color:
-                                            FinWalletTheme.of(context).primary,
+                                        FinWalletTheme.of(context).primary,
                                         textStyle: FinWalletTheme.of(context)
                                             .titleSmall,
                                         elevation: 3.0,
@@ -374,12 +373,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           color: FinWalletTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                          BorderRadius.circular(8.0),
                                         ),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                           children: [
                                             Text(
                                               FFLocalizations.of(context).getText(
@@ -390,23 +389,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             ),
                                             Padding(
                                               padding:
-                                                  EdgeInsetsDirectional.fromSTEB(
-                                                      24.0, 0.0, 4.0, 0.0),
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 0.0, 4.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   'a0iimirx' /* Create */,
                                                 ),
                                                 style:
-                                                    FinWalletTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Lexend',
-                                                          color:
-                                                              FinWalletTheme.of(
-                                                                      context)
-                                                                  .primary,
-                                                        ),
+                                                FinWalletTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                  fontFamily: 'Lexend',
+                                                  color:
+                                                  FinWalletTheme.of(
+                                                      context)
+                                                      .primary,
+                                                ),
                                               ),
                                             ),
                                             Icon(
